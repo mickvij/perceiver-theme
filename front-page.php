@@ -181,7 +181,7 @@
   </div>
 
   <!-- Steps: hoe het systeem werkt -->
-  <div id="mon-steps" class="sec-block sec-block--alt sec-block--gap">
+  <div id="mon-steps" class="sec-block sec-block--alt-teal sec-block--gap">
     <div class="steps-intro reveal">
       <div class="section-label section-label--teal">Hoe het werkt</div>
       <h3 class="section-h2">Van camera tot inzicht<br>in 4 stappen</h3>
@@ -325,7 +325,7 @@
   </div>
 
   <!-- Steps: eerst detecteren, dan gericht bestrijden -->
-  <div id="bes-steps" class="sec-block sec-block--alt sec-block--gap">
+  <div id="bes-steps" class="sec-block sec-block--alt-pink sec-block--gap">
     <div class="steps-intro reveal">
       <div class="section-label section-label--pink">Hoe het werkt</div>
       <h3 class="section-h2">Eerst detecteren.<br>Dan gericht bestrijden.</h3>
@@ -333,25 +333,25 @@
     <div class="mon-steps bes-steps">
       <div class="mon-step reveal reveal-delay-1">
         <div class="mon-step-icon" style="background:linear-gradient(135deg,#e11d48,#9333ea);">📡</div>
-        <div class="mon-step-num" style="color:var(--pink);">STAP 01</div>
+        <div class="mon-step-num">STAP 01</div>
         <h4 class="mon-step-title">Activiteit wordt gedetecteerd</h4>
         <p class="mon-step-desc">De camera's signaleren wanneer een muis of rat actief is. Het systeem registreert de locatie, het tijdstip en de frequentie — zodat een nauwkeurig beeld ontstaat van waar knaagdieren zich bevinden.</p>
       </div>
       <div class="mon-step reveal reveal-delay-2">
         <div class="mon-step-icon" style="background:linear-gradient(135deg,#9333ea,#7c3aed);">🪤</div>
-        <div class="mon-step-num" style="color:var(--pink);">STAP 02</div>
+        <div class="mon-step-num">STAP 02</div>
         <h4 class="mon-step-title">Vallen alleen waar nodig</h4>
         <p class="mon-step-desc">Op basis van detectiedata plaatsen we vallen precies op de locaties waar activiteit is gezien. Geen onnodige vallen, geen overbodige verstoring van de omgeving.</p>
       </div>
       <div class="mon-step reveal reveal-delay-3">
         <div class="mon-step-icon" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);">🧠</div>
-        <div class="mon-step-num" style="color:var(--pink);">STAP 03</div>
+        <div class="mon-step-num">STAP 03</div>
         <h4 class="mon-step-title">AI optimaliseert de vangst</h4>
         <p class="mon-step-desc">De slimme vallen herkennen wanneer een knaagdier nadert, welke soort aanwezig is en wat de activiteit rondom de val is. Zo bepaalt het systeem het optimale vangmoment voor maximale effectiviteit.</p>
       </div>
       <div class="mon-step reveal reveal-delay-4">
         <div class="mon-step-icon" style="background:linear-gradient(135deg,#6d28d9,#e11d48);">✅</div>
-        <div class="mon-step-num" style="color:var(--pink);">STAP 04</div>
+        <div class="mon-step-num">STAP 04</div>
         <h4 class="mon-step-title">Vallen verdwijnen na oplossing</h4>
         <p class="mon-step-desc">Zodra het systeem geen activiteit meer detecteert, worden de vallen verwijderd. Geen permanente middelen, geen gif — een schone en professionele omgeving.</p>
       </div>
@@ -464,7 +464,7 @@
   </div>
 
   <!-- Block 2: Steps -->
-  <div id="rap-steps" class="sec-block sec-block--alt sec-block--gap">
+  <div id="rap-steps" class="sec-block sec-block--alt-amber sec-block--gap">
     <div class="steps-intro reveal">
       <div class="section-label section-label--amber">Hoe het werkt</div>
       <h3 class="section-h2">Van detectie tot rapport<br>volledig automatisch.</h3>
@@ -472,25 +472,25 @@
     <div class="mon-steps rap-steps">
       <div class="mon-step reveal reveal-delay-1">
         <div class="mon-step-icon" style="background:linear-gradient(135deg,#d97706,#f59e0b);">📋</div>
-        <div class="mon-step-num" style="color:var(--amber);">STAP 01</div>
+        <div class="mon-step-num">STAP 01</div>
         <h4 class="mon-step-title">Alles automatisch vastgelegd</h4>
         <p class="mon-step-desc">Elke detectie, vangst en maatregel wordt automatisch geregistreerd. Geen handmatige invoer, geen ontbrekende data — alles altijd compleet en actueel.</p>
       </div>
       <div class="mon-step reveal reveal-delay-2">
         <div class="mon-step-icon" style="background:linear-gradient(135deg,#f59e0b,#dc2626);">📍</div>
-        <div class="mon-step-num" style="color:var(--amber);">STAP 02</div>
+        <div class="mon-step-num">STAP 02</div>
         <h4 class="mon-step-title">Inzicht in locaties en patronen</h4>
         <p class="mon-step-desc">Zie precies waar knaagdieren binnenkomen, welke routes ze nemen en op welke momenten ze actief zijn. Risicolocaties en seizoenspatronen worden direct zichtbaar.</p>
       </div>
       <div class="mon-step reveal reveal-delay-3">
         <div class="mon-step-icon" style="background:linear-gradient(135deg,#dc2626,#d97706);">📅</div>
-        <div class="mon-step-num" style="color:var(--amber);">STAP 03</div>
+        <div class="mon-step-num">STAP 03</div>
         <h4 class="mon-step-title">Dagelijks datagestuurd plan</h4>
         <p class="mon-step-desc">Op basis van de meest recente data wordt elke dag het bestrijdingsplan bijgesteld. Waar zijn vallen nodig? Waar kunnen ze weg? Het systeem bepaalt dit automatisch.</p>
       </div>
       <div class="mon-step reveal reveal-delay-4">
         <div class="mon-step-icon" style="background:linear-gradient(135deg,#d97706,#dc2626);">🏆</div>
-        <div class="mon-step-num" style="color:var(--amber);">STAP 04</div>
+        <div class="mon-step-num">STAP 04</div>
         <h4 class="mon-step-title">Audit- en complianceklaar</h4>
         <p class="mon-step-desc">Alle rapportages zijn direct exporteerbaar voor HACCP-controles, audits en certificeringstrajecten. Transparante documentatie van elke maatregel, vangst en meting.</p>
       </div>

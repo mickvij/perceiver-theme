@@ -387,6 +387,9 @@ nav.scrolled { padding: 12px 60px; }
   background: linear-gradient(150deg, #06091a 0%, #0d1338 40%, #111a50 70%, #0a0f2e 100%);
 }
 .sec-block--gap { margin-top: 16px; }
+.sec-block--alt-teal  { background: linear-gradient(160deg, #ecfeff 0%, #f0f9ff 55%, #f1f5f9 100%); }
+.sec-block--alt-pink  { background: linear-gradient(160deg, #fff1f2 0%, #fdf2f8 55%, #faf5ff 100%); }
+.sec-block--alt-amber { background: linear-gradient(160deg, #fffbeb 0%, #fef9ee 55%, #f9f7f1 100%); }
 
 /* ── SECTION LABEL MODIFIERS ── */
 .section-label--teal  { color: var(--teal);      background: rgba(8,145,178,0.10); }
@@ -405,6 +408,7 @@ nav.scrolled { padding: 12px 60px; }
 .step-card {
   background: var(--bg-white); border-radius: 20px; padding: 36px 28px;
   border: 1px solid rgba(0,0,0,0.07);
+  border-top: 3px solid var(--blue-mid);
   box-shadow: var(--shadow-sm);
   position: relative; transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -567,27 +571,41 @@ nav.scrolled { padding: 12px 60px; }
 }
 .mon-steps {
   display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 28px; position: relative;
+  gap: 20px; position: relative;
 }
-.mon-steps::before {
-  content: ''; position: absolute;
-  top: 32px; left: 14%; right: 14%;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(15,163,177,0.25), rgba(6,182,212,0.25));
-  z-index: 0;
+.mon-steps::before { display: none; }
+.mon-step {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 24px;
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 0 0 0 transparent;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-top: 3px solid var(--step-accent, #0891b2);
 }
-.mon-step { text-align: center; position: relative; z-index: 1; }
+.mon-step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+}
 .mon-step-icon {
-  width: 64px; height: 64px; border-radius: 20px;
+  width: 60px; height: 60px; border-radius: 18px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 28px; margin: 0 auto 16px;
-  box-shadow: 0 12px 32px rgba(15,163,177,0.2);
+  font-size: 26px; margin: 0 auto 18px;
+  box-shadow: 0 10px 28px rgba(15,163,177,0.2);
   position: relative; z-index: 1;
 }
 .mon-step-num {
+  display: inline-flex; align-items: center; justify-content: center;
   font-family: 'Syne', sans-serif;
-  font-size: 10px; font-weight: 700;
-  color: #0fa3b1; letter-spacing: 2px; margin-bottom: 10px;
+  font-size: 10px; font-weight: 800;
+  color: var(--step-accent, #0891b2);
+  background: color-mix(in srgb, var(--step-accent, #0891b2) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--step-accent, #0891b2) 25%, transparent);
+  padding: 4px 12px; border-radius: 100px;
+  letter-spacing: 1.5px; margin-bottom: 14px;
 }
 .mon-step-title {
   font-family: 'Syne', sans-serif;
@@ -700,33 +718,46 @@ nav.scrolled { padding: 12px 60px; }
 }
 .bes-ui-stat.green .bes-ui-stat-n { color: #22c55e; }
 .bes-ui-stat-l { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.8px; text-transform: uppercase; margin-top: 2px; }
-.bes-steps::before {
-  background: linear-gradient(90deg, rgba(232,64,106,0.2), rgba(192,38,211,0.2));
-}
+/* Per-section card accent colors */
+#mon-steps .mon-step { --step-accent: #0891b2; }
+#bes-steps .mon-step { --step-accent: #e11d48; }
+#rap-steps .mon-step { --step-accent: #d97706; }
+
+.bes-steps::before { display: none; }
 .bes-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.bes-comp-col { border-radius: 20px; padding: 36px 32px; }
-.bes-comp-col.bad { background: #fafafa; border: 1.5px solid #e5e7eb; }
+.bes-comp-col { border-radius: 20px; padding: 36px 32px; border: 1.5px solid transparent; transition: transform 0.25s; }
+.bes-comp-col:hover { transform: translateY(-4px); }
+.bes-comp-col.bad {
+  background: #f8f9fa;
+  border-color: #e5e7eb;
+  border-top: 3px solid #9ca3af;
+}
 .bes-comp-col.good {
-  background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(37,99,235,0.05));
-  border: 1.5px solid rgba(16,185,129,0.24);
+  background: linear-gradient(145deg, #f0fdf4 0%, #ecfdf5 50%, #f0f9ff 100%);
+  border-color: rgba(16,185,129,0.3);
+  border-top: 3px solid #10b981;
+  box-shadow: 0 8px 32px rgba(16,185,129,0.1);
 }
 .bes-comp-header {
   font-family: 'Syne', sans-serif;
   font-size: 15px; font-weight: 800; margin-bottom: 22px;
+  display: flex; align-items: center; gap: 8px;
 }
-.bes-comp-col.bad .bes-comp-header { color: var(--text-body); }
-.bes-comp-col.good .bes-comp-header { color: #10b981; }
-.bes-comp-col ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+.bes-comp-col.bad .bes-comp-header { color: #6b7280; }
+.bes-comp-col.good .bes-comp-header { color: #059669; }
+.bes-comp-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .bes-comp-col li {
   display: flex; align-items: flex-start; gap: 10px;
-  font-size: 14px; line-height: 1.5; color: var(--text-dark);
+  font-size: 14px; line-height: 1.5;
 }
+.bes-comp-col.bad li { color: #9ca3af; }
+.bes-comp-col.good li { color: var(--text-dark); }
 .bes-comp-col li::before {
   content: ''; width: 6px; height: 6px; border-radius: 50%;
   flex-shrink: 0; margin-top: 7px;
 }
 .bes-comp-col.bad li::before { background: #d1d5db; }
-.bes-comp-col.good li::before { background: #10b981; }
+.bes-comp-col.good li::before { background: #10b981; box-shadow: 0 0 6px rgba(16,185,129,0.5); }
 
 /* ── RAPPORTAGE ── */
 .reports-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; position: relative; z-index: 1; }
@@ -816,12 +847,16 @@ nav.scrolled { padding: 12px 60px; }
 }
 .rap-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .rap-feature-card {
-  background: var(--bg-light); border-radius: 20px; padding: 32px 28px;
-  border: 1px solid transparent; transition: all 0.3s ease;
+  background: white;
+  border-radius: 20px; padding: 32px 28px;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-top: 3px solid var(--amber);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
 }
 .rap-feature-card:hover {
-  border-color: rgba(217,119,6,0.22); transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(217,119,6,0.12);
 }
 .rap-feature-icon {
   width: 52px; height: 52px; border-radius: 16px;
