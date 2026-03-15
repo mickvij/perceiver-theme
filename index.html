@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perceiver — De nieuwe standaard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css?v=20260312-1">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">perceiver<span>.</span></div>
+  <div class="nav-links">
+    <a href="#werkwijze">Werkwijze</a>
+    <a href="#bestrijding">Bestrijding</a>
+    <a href="#monitoren">Monitoren</a>
+    <a href="#rapportage">Rapportage</a>
+    <a href="#contact" class="nav-cta">Praat met expert</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">AI-aangedreven plaagdierbestrijding</div>
+      <h1>De&nbsp;nieuwe&nbsp;standaard<br>in bestrijding van<br><em>ratten & muizen.</em></h1>
+      <p class="hero-sub">IPM-aanpak gecombineerd met AI-camera­detectie en slimme vallen. Realtime inzicht, maximale effectiviteit.</p>
+      <div class="hero-actions">
+        <a href="#werkwijze" class="btn-primary">Praat met een expert</a>
+        <a href="#werkwijze" class="btn-ghost">Onze werkwijze →</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="float-badge badge-1">
+        <div class="badge-icon" style="background:#dcfce7">🎯</div>
+        <div>
+          <div style="font-size:11px;color:#6b7280;">Nieuw vangst</div>
+          <div style="font-size:13px;">Locatie B · Zone 3</div>
+        </div>
+      </div>
+
+      <div class="hero-slideshow" id="heroSlideshow">
+        <!-- SLIDE 1: AI Detection -->
+        <div class="hero-slide active" data-slide="0">
+          <img src="assets/images/slider-detection.png" alt="AI beeldherkenning detecteert muis met 99% zekerheid">
+          <div class="slide-caption">
+            <div class="slide-caption-dot"></div>
+            <div class="slide-caption-text">AI Beeldherkenning</div>
+          </div>
+          <div class="slide-step">01 <span>/ 04</span></div>
+        </div>
+
+        <!-- SLIDE 2: Phone Alert -->
+        <div class="hero-slide" data-slide="1">
+          <img src="assets/images/slider-alert.png" alt="Directe melding op telefoon bij detectie">
+          <div class="slide-caption">
+            <div class="slide-caption-dot"></div>
+            <div class="slide-caption-text">Direct Alert</div>
+          </div>
+          <div class="slide-step">02 <span>/ 04</span></div>
+        </div>
+
+        <!-- SLIDE 3: Service Van -->
+        <div class="hero-slide" data-slide="2">
+          <img src="assets/images/slider-service.png" alt="Perceiver bestrijder komt aan bij locatie">
+          <div class="slide-caption">
+            <div class="slide-caption-dot"></div>
+            <div class="slide-caption-text">Snelle Respons</div>
+          </div>
+          <div class="slide-step">03 <span>/ 04</span></div>
+        </div>
+
+        <!-- SLIDE 4: Dashboard -->
+        <div class="hero-slide" data-slide="3">
+          <img src="assets/images/slide-dashboard.png" alt="Volledig data dashboard met realtime inzichten">
+          <div class="slide-caption">
+            <div class="slide-caption-dot"></div>
+            <div class="slide-caption-text">Data Dashboard</div>
+          </div>
+          <div class="slide-step">04 <span>/ 04</span></div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="slide-progress">
+          <div class="slide-progress-bar" id="slideProgressBar"></div>
+        </div>
+        <!-- Indicators -->
+        <div class="slide-indicators">
+          <button class="slide-dot active" data-index="0"></button>
+          <button class="slide-dot" data-index="1"></button>
+          <button class="slide-dot" data-index="2"></button>
+          <button class="slide-dot" data-index="3"></button>
+        </div>
+      </div>
+
+      <div class="float-badge badge-2">
+        <div class="badge-icon" style="background:#dbeafe">📍</div>
+        <div>
+          <div style="font-size:11px;color:#6b7280;">Heatmap update</div>
+          <div style="font-size:13px;">3 nieuwe hotspots</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARDS -->
+<div class="cards-section">
+  <div class="cards-grid">
+    <div class="service-card card-1" onclick="scrollToSection('werkwijze')">
+      <div>
+        <div class="card-icon">🔍</div>
+        <div class="card-title">Werkwijze</div>
+        <div class="card-desc">IPM-aanpak, realtime geoptimaliseerd met slimme technologie.</div>
+      </div>
+      <a class="card-btn" href="#werkwijze">Lees meer over onze werkwijze</a>
+    </div>
+    <div class="service-card card-2" onclick="scrollToSection('bestrijding')">
+      <div>
+        <div class="card-icon">⚡</div>
+        <div class="card-title">Bestrijding</div>
+        <div class="card-desc">AI-gestuurde val die blijft vangen tot de laatste rat of muis.</div>
+      </div>
+      <a class="card-btn" href="#bestrijding">Lees meer over bestrijden</a>
+    </div>
+    <div class="service-card card-3" onclick="scrollToSection('monitoren')">
+      <div>
+        <div class="card-icon">📡</div>
+        <div class="card-title">Monitoren</div>
+        <div class="card-desc">AI-cameradetectie vanaf de eerste beweging.</div>
+      </div>
+      <a class="card-btn" href="#monitoren">Lees meer over monitoren</a>
+    </div>
+    <div class="service-card card-4" onclick="scrollToSection('rapportage')">
+      <div>
+        <div class="card-icon">📊</div>
+        <div class="card-title">Rapportage</div>
+        <div class="card-desc">Volledig inzicht in activiteit en vangst.</div>
+      </div>
+      <a class="card-btn" href="#rapportage">Lees meer over rapportage</a>
+    </div>
+  </div>
+</div>
+
+<!-- WERKWIJZE -->
+<section id="werkwijze" style="scroll-margin-top:80px;">
+  <div style="background:white;border-radius:32px;margin:0 40px 40px;padding:80px;box-shadow:0 2px 40px rgba(0,0,0,0.05);">
+    <div class="reveal">
+      <div class="section-label" style="color:#1a7fe8;background:rgba(26,127,232,0.08)">Werkwijze</div>
+      <h2 class="section-h2">Gestructureerd. Slim.<br>Duurzaam effectief.</h2>
+      <p class="section-sub">Onze IPM-methodiek combineert preventie, detectie en interventie in een naadloos samenspel van technologie en vakkennis.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num">01</div>
+        <div class="step-icon">🔎</div>
+        <div class="step-title">Inspectie & Analyse</div>
+        <div class="step-desc">Een grondige locatie-inspectie legt risicofactoren bloot. We analyseren routes, nestplaatsen en kwetsbare zones.</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">02</div>
+        <div class="step-icon">📐</div>
+        <div class="step-title">Strategie & Plaatsing</div>
+        <div class="step-desc">Op basis van heatmaps en AI-analyse plaatsen we vallen en camera's op optimale locaties.</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-num">03</div>
+        <div class="step-icon">🔄</div>
+        <div class="step-title">Monitor & Optimaliseer</div>
+        <div class="step-desc">Realtime dashboards geven direct inzicht. Het systeem optimaliseert continu op basis van nieuwe data.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTRIJDING -->
+<section id="bestrijding" style="scroll-margin-top:80px;margin:0 40px 40px;">
+  <div style="background:linear-gradient(135deg,#1a0a2e,#2d1260,#1a0a2e);border-radius:32px;padding:80px;overflow:hidden;position:relative;">
+    <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(232,64,106,0.3) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-100px;left:-50px;width:300px;height:300px;background:radial-gradient(circle,rgba(124,58,237,0.25) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="bestrijding-content">
+      <div class="reveal">
+        <div class="section-label" style="color:#f472b6;background:rgba(244,114,182,0.12)">Bestrijding</div>
+        <h2 class="section-h2" style="color:white;">AI-gestuurde vallen.<br>Geen ontsnapping mogelijk.</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.6)">Onze slimme vallen herkennen activiteitspatronen en passen de lokstrategie automatisch aan voor maximale effectiviteit.</p>
+        <a href="#" class="btn-primary" style="margin-top:8px">Vraag een demo aan</a>
+      </div>
+      <div class="traps-grid reveal reveal-delay-2">
+        <div class="trap-card">
+          <div class="trap-badge">AI-gestuurd</div>
+          <div class="trap-icon">🪤</div>
+          <div class="trap-title">Slimme vallen</div>
+          <div class="trap-desc">Adaptieve lokwerking op basis van gedragsdata. Past zich aan per locatie en seizoen.</div>
+        </div>
+        <div class="trap-card">
+          <div class="trap-badge">Realtime</div>
+          <div class="trap-icon">📲</div>
+          <div class="trap-title">Direct alarm</div>
+          <div class="trap-desc">Meldingen bij activiteit of vangst. Ons team reageert binnen 2 uur.</div>
+        </div>
+        <div class="trap-card">
+          <div class="trap-badge">Duurzaam</div>
+          <div class="trap-icon">🌿</div>
+          <div class="trap-title">Minimale interventie</div>
+          <div class="trap-desc">IPM-principes zorgen voor minimaal gebruik van chemische middelen.</div>
+        </div>
+        <div class="trap-card">
+          <div class="trap-badge">Schaalbaar</div>
+          <div class="trap-icon">🗺️</div>
+          <div class="trap-title">Multi-locatie</div>
+          <div class="trap-desc">Eén dashboard voor al uw locaties, ongeacht omvang of complexiteit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONITOREN -->
+<section id="monitoren" style="scroll-margin-top:80px;background:white;border-radius:32px;margin:0 40px 40px;padding:80px;box-shadow:0 2px 40px rgba(0,0,0,0.05);">
+  <div class="reveal">
+    <div class="section-label" style="color:#0fa3b1;background:rgba(15,163,177,0.08)">Monitoren</div>
+    <h2 class="section-h2">Ziet alles.<br>Mist niets.</h2>
+    <p class="section-sub">AI-camera's registreren elke beweging en classificeren automatisch op soort, tijd en locatie.</p>
+  </div>
+  <div class="monitor-layout">
+    <div class="monitor-features">
+      <div class="monitor-feature reveal reveal-delay-1">
+        <div class="mf-icon">🎥</div>
+        <div>
+          <div class="mf-title">HD Nacht­zicht Camera's</div>
+          <div class="mf-desc">Volledig kleurbeeld ook 's nachts. Detecteert beweging tot op 10 meter in totale duisternis.</div>
+        </div>
+      </div>
+      <div class="monitor-feature reveal reveal-delay-2">
+        <div class="mf-icon">🧠</div>
+        <div>
+          <div class="mf-title">AI Soort­herkenning</div>
+          <div class="mf-desc">Onderscheidt ratten, muizen en andere dieren met 97% nauwkeurigheid. Valse alarmen bijna nul.</div>
+        </div>
+      </div>
+      <div class="monitor-feature reveal reveal-delay-3">
+        <div class="mf-icon">🗺️</div>
+        <div>
+          <div class="mf-title">Bewegings­heatmaps</div>
+          <div class="mf-desc">Visualiseer looproutes en hotspots over tijd. Ontdek patronen die het blote oog mist.</div>
+        </div>
+      </div>
+      <div class="monitor-feature reveal reveal-delay-4">
+        <div class="mf-icon">🔔</div>
+        <div>
+          <div class="mf-title">Slimme Alerts</div>
+          <div class="mf-desc">Push-meldingen bij nieuwe detectie, afwijkend gedrag of verhoogde activiteit op kritieke locaties.</div>
+        </div>
+      </div>
+    </div>
+    <div class="monitor-visual reveal reveal-delay-2">
+      <div class="cam-grid">
+        <div class="cam-feed active">
+          <div class="cam-label">CAM 01 · Keuken A</div>
+          <div class="cam-motion">BEWEGING</div>
+          <div class="cam-status">ACTIEF</div>
+        </div>
+        <div class="cam-feed">
+          <div class="cam-label">CAM 02 · Opslag B</div>
+          <div class="cam-status">ACTIEF</div>
+        </div>
+        <div class="cam-feed">
+          <div class="cam-label">CAM 03 · Entree</div>
+          <div class="cam-status">ACTIEF</div>
+        </div>
+        <div class="cam-feed active">
+          <div class="cam-label">CAM 04 · Kelder</div>
+          <div class="cam-motion">DETECTIE</div>
+          <div class="cam-status">ACTIEF</div>
+        </div>
+      </div>
+      <div class="monitor-bar">
+        <div class="mini-bar" style="height:45px;opacity:0.4"></div>
+        <div class="mini-bar" style="height:55px;opacity:0.6"></div>
+        <div class="mini-bar" style="height:70px"></div>
+        <div class="mini-bar" style="height:85px"></div>
+        <div class="mini-bar" style="height:60px;opacity:0.7"></div>
+        <div class="mini-bar" style="height:50px;opacity:0.5"></div>
+        <div class="mini-bar" style="height:40px;opacity:0.4"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RAPPORTAGE -->
+<section id="rapportage" style="scroll-margin-top:80px;margin:0 40px 80px;">
+  <div style="background:linear-gradient(135deg,#fef3c7,#fde68a,#fed7aa);border-radius:32px;padding:80px;overflow:hidden;position:relative;">
+    <div style="position:absolute;top:-80px;right:-80px;width:350px;height:350px;background:radial-gradient(circle,rgba(245,166,35,0.3) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="reports-layout">
+      <div class="report-mockup reveal">
+        <div class="report-header">
+          <div class="report-title-mock">📋 Maandrapportage — Maart 2026</div>
+          <div class="report-date-mock">Gegenereerd: 12 mrt</div>
+        </div>
+        <div class="report-chart-area">
+          <div class="r-bar" style="height:40%"></div>
+          <div class="r-bar" style="height:65%"></div>
+          <div class="r-bar" style="height:50%"></div>
+          <div class="r-bar" style="height:80%;background:linear-gradient(180deg,#f5a623,rgba(245,166,35,0.3))"></div>
+          <div class="r-bar" style="height:55%"></div>
+          <div class="r-bar" style="height:90%;background:linear-gradient(180deg,#ef4444,rgba(239,68,68,0.2))"></div>
+          <div class="r-bar" style="height:70%"></div>
+          <div class="r-bar" style="height:45%"></div>
+        </div>
+        <div class="report-metrics">
+          <div class="r-metric">
+            <div class="r-metric-n" style="color:#f5a623">14</div>
+            <div class="r-metric-l">Vangsten</div>
+          </div>
+          <div class="r-metric">
+            <div class="r-metric-n">42</div>
+            <div class="r-metric-l">Activiteiten</div>
+          </div>
+          <div class="r-metric">
+            <div class="r-metric-n" style="color:#22c55e">↓83%</div>
+            <div class="r-metric-l">Vs. vorige maand</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="reveal">
+          <div class="section-label" style="color:#b45309;background:rgba(180,83,9,0.08)">Rapportage</div>
+          <h2 class="section-h2" style="color:#1c1917">Volledig inzicht.<br>Altijd beschikbaar.</h2>
+          <p class="section-sub" style="color:#78716c">Automatisch gegenereerde rapporten geven u op elk moment volledig inzicht in activiteit, vangsten en trends.</p>
+        </div>
+        <div class="report-features">
+          <div class="rf-item reveal reveal-delay-1">
+            <div class="rf-dot" style="background:#f5a623"></div>
+            <div>
+              <div class="rf-title">Automatische maandrapportages</div>
+              <div class="rf-desc">Professionele PDF-rapporten worden automatisch gegenereerd en verzonden naar uw team.</div>
+            </div>
+          </div>
+          <div class="rf-item reveal reveal-delay-2">
+            <div class="rf-dot" style="background:#ef4444"></div>
+            <div>
+              <div class="rf-title">Trend & patroonanalyse</div>
+              <div class="rf-desc">Identificeer seizoenspatronen en anticipeer op verhoogde activiteitsperioden.</div>
+            </div>
+          </div>
+          <div class="rf-item reveal reveal-delay-3">
+            <div class="rf-dot" style="background:#22c55e"></div>
+            <div>
+              <div class="rf-title">HACCP & compliance-klaar</div>
+              <div class="rf-desc">Alle data direct exporteerbaar voor audits en certificeringstrajecten.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMENWERKEN / CONTACT CTA -->
+<section id="contact" style="scroll-margin-top:80px;margin:0 40px 80px;">
+  <div class="cta-section">
+    <div class="cta-bg-blob cta-blob-1"></div>
+    <div class="cta-bg-blob cta-blob-2"></div>
+    <div class="cta-grid">
+
+      <!-- Left: text + contact + buttons -->
+      <div class="cta-left reveal">
+        <div class="section-label" style="color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.14);">Contact</div>
+        <h2 class="cta-h2">Samenwerken?</h2>
+        <p class="cta-p">Neem contact op en ontdek hoe Perceiver uw bedrijf beschermt. Geen verplichtingen, wél direct antwoord.</p>
+
+        <div class="cta-contacts">
+          <a href="tel:+31621667013" class="cta-contact">
+            <div class="cta-contact-icon">📞</div>
+            <div>
+              <div class="cta-contact-label">Bellen</div>
+              <div class="cta-contact-value">+31 6 21667013</div>
+            </div>
+          </a>
+          <a href="mailto:info@perceiver.nl" class="cta-contact">
+            <div class="cta-contact-icon">✉️</div>
+            <div>
+              <div class="cta-contact-label">Mailen</div>
+              <div class="cta-contact-value">info@perceiver.nl</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="cta-btns">
+          <button class="cta-btn-a" onclick="openModal('modal-vraag')">
+            <span>💬</span> Stel een vraag
+          </button>
+          <button class="cta-btn-b" onclick="openModal('modal-callback')">
+            <span>📲</span> Teruggebeld worden
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: person image -->
+      <div class="cta-right reveal reveal-delay-2">
+        <img
+          src="assets/images/cta-person.png"
+          alt="Perceiver medewerker"
+          class="cta-person"
+        >
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODAL: Stel een vraag -->
+<div class="cta-modal" id="modal-vraag">
+  <div class="cta-modal-box">
+    <button class="cta-modal-close" onclick="closeModal('modal-vraag')">✕</button>
+    <div class="cta-modal-icon">💬</div>
+    <h3 class="cta-modal-title">Stel een vraag</h3>
+    <p class="cta-modal-sub">We beantwoorden uw vraag zo snel mogelijk, uiterlijk binnen één werkdag.</p>
+    <form class="cta-form" onsubmit="handleFormSubmit(event, 'modal-vraag')">
+      <div class="cta-form-row">
+        <div class="cta-form-group">
+          <label>Naam</label>
+          <input type="text" placeholder="Uw naam" required>
+        </div>
+        <div class="cta-form-group">
+          <label>E-mailadres</label>
+          <input type="email" placeholder="uw@email.nl" required>
+        </div>
+      </div>
+      <div class="cta-form-group">
+        <label>Bedrijfsnaam</label>
+        <input type="text" placeholder="Uw bedrijf (optioneel)">
+      </div>
+      <div class="cta-form-group">
+        <label>Uw vraag</label>
+        <textarea rows="4" placeholder="Waar kunnen wij u mee helpen?" required></textarea>
+      </div>
+      <button type="submit" class="cta-form-submit">Verstuur vraag →</button>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: Teruggebeld worden -->
+<div class="cta-modal" id="modal-callback">
+  <div class="cta-modal-box">
+    <button class="cta-modal-close" onclick="closeModal('modal-callback')">✕</button>
+    <div class="cta-modal-icon">📲</div>
+    <h3 class="cta-modal-title">Teruggebeld worden</h3>
+    <p class="cta-modal-sub">Laat uw gegevens achter en wij bellen u zo snel mogelijk terug.</p>
+    <form class="cta-form" onsubmit="handleFormSubmit(event, 'modal-callback')">
+      <div class="cta-form-row">
+        <div class="cta-form-group">
+          <label>Naam</label>
+          <input type="text" placeholder="Uw naam" required>
+        </div>
+        <div class="cta-form-group">
+          <label>Telefoonnummer</label>
+          <input type="tel" placeholder="+31 6 ..." required>
+        </div>
+      </div>
+      <div class="cta-form-group">
+        <label>E-mailadres</label>
+        <input type="email" placeholder="uw@email.nl" required>
+      </div>
+      <div class="cta-form-group">
+        <label>Beste tijd om te bellen</label>
+        <select>
+          <option value="">Geen voorkeur</option>
+          <option value="ochtend">Ochtend (9:00 – 12:00)</option>
+          <option value="middag">Middag (12:00 – 17:00)</option>
+          <option value="avond">Avond (17:00 – 19:00)</option>
+        </select>
+      </div>
+      <button type="submit" class="cta-form-submit">Bel mij terug →</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 <strong>Perceiver</strong> — De nieuwe standaard in plaagdierbestrijding</p>
+</footer>
+
+<script src="assets/js/main.js?v=20260312-1" defer></script>
+</body>
+</html>
