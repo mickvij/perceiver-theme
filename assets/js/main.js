@@ -12,9 +12,11 @@
 
   // Navbar shrink
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  }
 
   // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
@@ -28,6 +30,12 @@
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.slide-dot');
     const progressBar = document.getElementById('slideProgressBar');
+    const slideshow = document.getElementById('heroSlideshow');
+
+    if (!slides.length || !dots.length || !progressBar || !slideshow) {
+      return;
+    }
+
     const DURATION = 4000;
     const TICK = 30;
     let current = 0;
@@ -56,7 +64,6 @@
       dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
     });
 
-    const slideshow = document.getElementById('heroSlideshow');
     slideshow.addEventListener('mouseenter', () => { paused = true; });
     slideshow.addEventListener('mouseleave', () => { paused = false; });
 

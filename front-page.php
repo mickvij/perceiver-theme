@@ -2,140 +2,273 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <div class="nav-logo">perceiver<span>.</span></div>
-  <div class="nav-links">
-    <a href="#monitoren">Monitoren</a>
-    <a href="#bestrijding">Bestrijding</a>
-    <a href="#rapportage">Rapportage</a>
-    <a href="#werkwijze">Werkwijze</a>
-    <a href="#contact" class="nav-cta">Praat met expert</a>
-  </div>
+	<a href="<?php echo esc_url(home_url('/')); ?>" class="nav-logo" aria-label="Perceiver home">
+		<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="Perceiver logo">
+	</a>
+	<div class="nav-links">
+		<a href="#monitoren">Monitoren</a>
+		<a href="#bestrijding">Bestrijding</a>
+		<a href="#rapportage">Rapportage</a>
+		<a href="#werkwijze">Werkwijze</a>
+	</div>
+	<a href="#contact" class="nav-cta">Praat met expert</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-text">
-      <div class="hero-badge">AI-aangedreven plaagdierbestrijding</div>
-      <h1>De&nbsp;nieuwe&nbsp;standaard<br>in bestrijding van<br><em>ratten & muizen.</em></h1>
-      <p class="hero-sub">IPM-aanpak gecombineerd met AI-camera­detectie en slimme vallen. Realtime inzicht, maximale effectiviteit.</p>
-      <div class="hero-actions">
-        <a href="#monitoren" class="btn-primary">Praat met een expert</a>
-        <a href="#werkwijze" class="btn-ghost">Onze werkwijze →</a>
-      </div>
-    </div>
+	<div class="hero-noise"></div>
+	<div class="hero-content">
+		<div class="hero-text">
+			<div class="hero-badge">AI-aangedreven plaagdierbestrijding</div>
+			<h1><em>Aannames</em><br>horen niet thuis in<br>voedselveiligheid.</h1>
+			<p class="hero-sub">Ziet wat er loopt. Stuurt de bestrijding aan. Legt resultaat vast.</p>
+			<div class="hero-actions">
+				<a href="#contact" class="btn-primary">Plan een gratis demo</a>
+				<a href="#werkwijze" class="btn-ghost">Bekijk hoe het werkt →</a>
+			</div>
+			<div class="hero-proof">
+				<span>Visuele detectie</span>
+				<span class="proof-sep">·</span>
+				<span>Gerichte vangst</span>
+				<span class="proof-sep">·</span>
+				<span>Aantoonbaar resultaat</span>
+			</div>
+		</div>
 
-    <div class="hero-visual">
-      <div class="float-badge badge-1">
-        <div class="badge-icon" style="background:#dcfce7">🎯</div>
-        <div>
-          <div style="font-size:11px;color:#6b7280;">Nieuw vangst</div>
-          <div style="font-size:13px;">Locatie B · Zone 3</div>
-        </div>
-      </div>
+		<div class="hero-visual">
+			<div class="float-badge badge-1">
+				<div class="badge-icon" style="background:#dcfce7">🎯</div>
+				<div>
+					<div style="font-size:11px;color:#6b7280;">Nieuw vangst</div>
+					<div style="font-size:13px;">Locatie B · Zone 3</div>
+				</div>
+			</div>
 
-      <div class="hero-slideshow" id="heroSlideshow">
-        <!-- SLIDE 1: AI Detection -->
-        <div class="hero-slide active" data-slide="0">
-          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-detection.png" alt="AI beeldherkenning detecteert muis met 99% zekerheid">
-          <div class="slide-caption">
-            <div class="slide-caption-dot"></div>
-            <div class="slide-caption-text">AI Beeldherkenning</div>
-          </div>
-          <div class="slide-step">01 <span>/ 04</span></div>
-        </div>
+			<div class="hero-slideshow" id="heroSlideshow">
+				<!-- SLIDE 1: AI Detection -->
+				<div class="hero-slide active" data-slide="0">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-detection.png" alt="AI beeldherkenning detecteert muis met 99% zekerheid">
+					<div class="slide-caption">
+						<div class="slide-caption-dot"></div>
+						<div class="slide-caption-text">AI Beeldherkenning</div>
+					</div>
+					<div class="slide-step">01 <span>/ 04</span></div>
+				</div>
 
-        <!-- SLIDE 2: Phone Alert -->
-        <div class="hero-slide" data-slide="1">
-          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-alert.png" alt="Directe melding op telefoon bij detectie">
-          <div class="slide-caption">
-            <div class="slide-caption-dot"></div>
-            <div class="slide-caption-text">Direct Alert</div>
-          </div>
-          <div class="slide-step">02 <span>/ 04</span></div>
-        </div>
+				<!-- SLIDE 2: Phone Alert -->
+				<div class="hero-slide" data-slide="1">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-alert.png" alt="Directe melding op telefoon bij detectie">
+					<div class="slide-caption">
+						<div class="slide-caption-dot"></div>
+						<div class="slide-caption-text">Direct Alert</div>
+					</div>
+					<div class="slide-step">02 <span>/ 04</span></div>
+				</div>
 
-        <!-- SLIDE 3: Service Van -->
-        <div class="hero-slide" data-slide="2">
-          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-service.png" alt="Perceiver bestrijder komt aan bij locatie">
-          <div class="slide-caption">
-            <div class="slide-caption-dot"></div>
-            <div class="slide-caption-text">Snelle Respons</div>
-          </div>
-          <div class="slide-step">03 <span>/ 04</span></div>
-        </div>
+				<!-- SLIDE 3: Service Van -->
+				<div class="hero-slide" data-slide="2">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-service.png" alt="Perceiver bestrijder komt aan bij locatie">
+					<div class="slide-caption">
+						<div class="slide-caption-dot"></div>
+						<div class="slide-caption-text">Snelle Respons</div>
+					</div>
+					<div class="slide-step">03 <span>/ 04</span></div>
+				</div>
 
-        <!-- SLIDE 4: Dashboard -->
-        <div class="hero-slide" data-slide="3">
-          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slide-dashboard.png" alt="Volledig data dashboard met realtime inzichten">
-          <div class="slide-caption">
-            <div class="slide-caption-dot"></div>
-            <div class="slide-caption-text">Data Dashboard</div>
-          </div>
-          <div class="slide-step">04 <span>/ 04</span></div>
-        </div>
+				<!-- SLIDE 4: Dashboard -->
+				<div class="hero-slide" data-slide="3">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slide-dashboard.png" alt="Volledig data dashboard met realtime inzichten">
+					<div class="slide-caption">
+						<div class="slide-caption-dot"></div>
+						<div class="slide-caption-text">Data Dashboard</div>
+					</div>
+					<div class="slide-step">04 <span>/ 04</span></div>
+				</div>
 
-        <!-- Progress bar -->
-        <div class="slide-progress">
-          <div class="slide-progress-bar" id="slideProgressBar"></div>
-        </div>
-        <!-- Indicators -->
-        <div class="slide-indicators">
-          <button class="slide-dot active" data-index="0"></button>
-          <button class="slide-dot" data-index="1"></button>
-          <button class="slide-dot" data-index="2"></button>
-          <button class="slide-dot" data-index="3"></button>
-        </div>
-      </div>
+				<!-- Progress bar -->
+				<div class="slide-progress">
+					<div class="slide-progress-bar" id="slideProgressBar"></div>
+				</div>
+				<!-- Indicators -->
+				<div class="slide-indicators">
+					<button class="slide-dot active" data-index="0"></button>
+					<button class="slide-dot" data-index="1"></button>
+					<button class="slide-dot" data-index="2"></button>
+					<button class="slide-dot" data-index="3"></button>
+				</div>
+			</div>
 
-      <div class="float-badge badge-2">
-        <div class="badge-icon" style="background:#dbeafe">📍</div>
-        <div>
-          <div style="font-size:11px;color:#6b7280;">Heatmap update</div>
-          <div style="font-size:13px;">3 nieuwe hotspots</div>
-        </div>
-      </div>
-    </div>
-  </div>
+			<div class="float-badge badge-2">
+				<div class="badge-icon" style="background:#dbeafe">📍</div>
+				<div>
+					<div style="font-size:11px;color:#6b7280;">Heatmap update</div>
+					<div style="font-size:13px;">3 nieuwe hotspots</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Decorative light streaks -->
+	<div class="hero-streak hero-streak--1"></div>
+	<div class="hero-streak hero-streak--2"></div>
+	<div class="hero-streak hero-streak--3"></div>
+
+	<!-- Curved bottom edge -->
+	<div class="hero-curve">
+		<svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M0 120V60C240 20 480 0 720 0s480 20 720 60v60H0z" fill="#f8fafc"/>
+		</svg>
+	</div>
 </section>
 
-<!-- CARDS -->
-<div class="cards-section">
-  <div class="cards-grid">
-    <div class="service-card card-3" onclick="scrollToSection('monitoren')">
-      <div>
-        <div class="card-icon">📡</div>
-        <div class="card-title">Monitoren</div>
-        <div class="card-desc">AI-cameradetectie vanaf de eerste beweging.</div>
-      </div>
-      <a class="card-btn" href="#monitoren">Lees meer over monitoren</a>
-    </div>
-    <div class="service-card card-2" onclick="scrollToSection('bestrijding')">
-      <div>
-        <div class="card-icon">⚡</div>
-        <div class="card-title">Bestrijding</div>
-        <div class="card-desc">AI-gestuurde val die blijft vangen tot de laatste rat of muis.</div>
-      </div>
-      <a class="card-btn" href="#bestrijding">Lees meer over bestrijden</a>
-    </div>
-    <div class="service-card card-4" onclick="scrollToSection('rapportage')">
-      <div>
-        <div class="card-icon">📊</div>
-        <div class="card-title">Rapportage</div>
-        <div class="card-desc">Volledig inzicht in activiteit en vangst.</div>
-      </div>
-      <a class="card-btn" href="#rapportage">Lees meer over rapportage</a>
-    </div>
-    <div class="service-card card-1" onclick="scrollToSection('werkwijze')">
-      <div>
-        <div class="card-icon">🔍</div>
-        <div class="card-title">Werkwijze</div>
-        <div class="card-desc">IPM-aanpak, realtime geoptimaliseerd met slimme technologie.</div>
-      </div>
-      <a class="card-btn" href="#werkwijze">Lees meer over onze werkwijze</a>
-    </div>
-  </div>
-</div>
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTIE 1B: VARIANT MET DRIE KAARTEN (ter vergelijking) -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="frustration-section">
+	<div class="frustration-inner">
+		<div class="frustration-text reveal">
+			<h2 class="section-h2">U draagt de verantwoordelijkheid.<br><span class="frustration-accent">Grip ontbreekt.</span></h2>
+			<!-- Introductietekst: wordt later toegevoegd -->
+		</div>
+		<div class="frustration-cards reveal reveal-delay-2">
+			<div class="frust-card">
+				<div class="frust-card-accent frust-card-accent--red"></div>
+				<div class="frust-card-content">
+					<div class="frust-card-label">Monitoren</div>
+					<h3 class="frust-card-title">Tussen controles bent u blind</h3>
+					<p class="frust-card-desc">Uw bestrijder komt eens per vier tot zes weken. Daartussen weet u niet wat er loopt, waar, hoeveel of wanneer. En ook tijdens een controle ziet u slechts een momentopname — niet het patroon. Het werkelijke beeld kent u niet.</p>
+				</div>
+			</div>
+			<div class="frust-card">
+				<div class="frust-card-accent frust-card-accent--amber"></div>
+				<div class="frust-card-content">
+					<div class="frust-card-label">Bestrijden</div>
+					<h3 class="frust-card-title">De huidige bestrijding loopt vast</h3>
+					<p class="frust-card-desc">Vallen verliezen snel hun effectiviteit, omdat knaagdieren ze leren omzeilen. Dan blijft gif over. Waar voedsel in de buurt is, wilt u dat niet en kunt u het vaak ook niet gebruiken. Zo loopt bestrijding vast.</p>
+				</div>
+			</div>
+			<div class="frust-card">
+				<div class="frust-card-accent frust-card-accent--slate"></div>
+				<div class="frust-card-content">
+					<div class="frust-card-label">Rapporteren</div>
+					<h3 class="frust-card-title">U kunt het niet aantonen</h3>
+					<p class="frust-card-desc">Uw rapport laat zien dat er gecontroleerd is. Niet dat het probleem onder controle is. Er zijn geen beelden, geen activiteitsdata en geen bewijs dat uw aanpak werkt. Bij een audit of incident staat u nog steeds met te weinig in handen.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- BRIDGE STATS: Harde cijfers als bewijs              -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="bridge-section">
+	<div class="bridge-inner" style="margin:0 40px;">
+		<div class="sec-block sec-block--shadow" style="padding:64px 56px;">
+			<div class="bridge-header reveal">
+				<h2 class="bridge-heading">De overlast groeit.<br><span class="frustration-accent">De aanpak staat stil.</span></h2>
+				<p class="bridge-subline">De cijfers laten zien wat de industrie niet wil horen.</p>
+			</div>
+			<div class="bridge-stats">
+				<div class="bridge-stat reveal reveal-delay-1">
+					<div class="bridge-stat-number">34 → 65 → 75</div>
+					<h3 class="bridge-stat-title">Spoedsluitingen door de NVWA</h3>
+					<p class="bridge-stat-desc">In 2023 sloot de NVWA 34 bedrijven wegens plaagdieren. In 2024 waren het er 65. In 2025: 75. Begin 2026 zet die stijging door.</p>
+					<span class="bridge-stat-source">Bron: NVWA, januari 2026</span>
+				</div>
+				<div class="bridge-stat-divider"></div>
+				<div class="bridge-stat reveal reveal-delay-2">
+					<div class="bridge-stat-number">3,4 miljoen</div>
+					<h3 class="bridge-stat-title">Gedood per jaar in Nederland</h3>
+					<p class="bridge-stat-desc">Er worden jaarlijks naar schatting 3,4 miljoen ratten en muizen gedood. En tóch neemt de overlast toe. De aanpak houdt het niet bij.</p>
+					<span class="bridge-stat-source">Bron: Tweede Kamer, 2021</span>
+				</div>
+				<div class="bridge-stat-divider"></div>
+				<div class="bridge-stat reveal reveal-delay-3">
+					<div class="bridge-stat-number">1 op 2</div>
+					<h3 class="bridge-stat-title">Ratten is resistent tegen gif</h3>
+					<p class="bridge-stat-desc">De helft van de bruine ratten is genetisch resistent tegen rodenticiden. Bij huismuizen ligt dat percentage nog hoger.</p>
+					<span class="bridge-stat-source">Bron: KAD/WUR, Wageningen University</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- BRUGSECTIE: van diagnose naar nieuw principe        -->
+<!-- Verklaring + categorieverschuiving                  -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="bridge-section">
+	<div class="bridge-inner" style="margin:0 40px;">
+		<div class="sec-block sec-block--shadow">
+			<div class="bridge-content">
+				<div class="bridge-text reveal">
+					<h2 class="section-h2">Het ligt niet aan de bestrijder.<br><span class="frustration-accent">Het ligt aan de methode.</span></h2>
+				</div>
+				<div class="bridge-points">
+					<div class="bridge-point reveal reveal-delay-1">
+						<h3 class="bridge-point-title">Een methode met structurele beperkingen</h3>
+						<p class="bridge-point-desc">De meeste bestrijders doen precies wat de methode van hen vraagt. Maar die methode is gebouwd op periodieke bezoeken, vaste vallocaties en indirecte signalen. Ze levert momentopnames, geen doorlopend beeld. Rapportages achteraf, geen bewijs op het moment dat het ertoe doet. Dat is geen kwestie van inzet. Dat is een systeembeperking.</p>
+					</div>
+					<div class="bridge-point reveal reveal-delay-2">
+						<h3 class="bridge-point-title">Wat een moderne aanpak wél moet leveren</h3>
+						<p class="bridge-point-desc">Continu zicht op wat er werkelijk speelt. Bestrijding die meebeweegt met activiteit in plaats van vast te staan op dezelfde plekken. En resultaat dat u kunt aantonen wanneer het erop aankomt. Niet sturen op schema's en aannames, maar op feiten.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SECTIE: PERCEIVER SLUIT HET GAT                    -->
+<!-- De reveal: niet een product, maar een nieuw systeem -->
+<!-- dat het gat tussen verantwoordelijkheid en zicht    -->
+<!-- structureel dicht.                                  -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="system-section">
+	<div class="system-inner" style="margin:0 40px;">
+		<div class="sec-block sec-block--dark">
+			<div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(16,185,129,0.15) 0%,transparent 70%);pointer-events:none;"></div>
+			<div style="position:absolute;bottom:-80px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(59,85,255,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+			<div class="system-content">
+				<div class="system-text reveal">
+					<div class="section-label" style="color:rgba(255,255,255,0.65);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);">Perceiver</div>
+					<h2 class="section-h2" style="color:white;">Continu zicht.<br>Gerichte bestrijding.<br><span style="background:linear-gradient(90deg,#10b981,#0891b2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Aantoonbaar resultaat.</span></h2>
+					<p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,0.6);max-width:460px;margin-bottom:12px;">Perceiver vervangt aannames door bewijs. Niet met sensoren of periodieke bezoeken, maar met een geïntegreerd systeem dat continu ziet wat er speelt, de bestrijding gericht aanstuurt en elke interventie en uitkomst vastlegt.</p>
+					<p style="font-size:14.5px;line-height:1.7;color:rgba(255,255,255,0.4);max-width:460px;margin-bottom:36px;">Eén systeem. Drie lagen. Geen gaten meer tussen verantwoordelijkheid en inzicht.</p>
+					<a href="#monitoren" class="btn-primary">Ontdek hoe het werkt ↓</a>
+				</div>
+				<div class="system-pillars reveal reveal-delay-2">
+					<div class="sys-pillar">
+						<div class="sys-pillar-icon" style="background:linear-gradient(135deg,#0891b2,#06b6d4);">
+							<svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+						</div>
+						<div class="sys-pillar-label">Zien</div>
+						<p class="sys-pillar-desc">Visuele AI-detectie die continu registreert welke knaagdieren actief zijn, waar en wanneer. Geen signalen — beelden.</p>
+					</div>
+					<div class="sys-pillar-connector"></div>
+					<div class="sys-pillar">
+						<div class="sys-pillar-icon" style="background:linear-gradient(135deg,#e11d48,#9333ea);">
+							<svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+						</div>
+						<div class="sys-pillar-label">Ingrijpen</div>
+						<p class="sys-pillar-desc">Slimme valtechnologie die gericht wordt ingezet op basis van activiteit. Beweegt mee. Zonder gif.</p>
+					</div>
+					<div class="sys-pillar-connector"></div>
+					<div class="sys-pillar">
+						<div class="sys-pillar-icon" style="background:linear-gradient(135deg,#d97706,#f59e0b);">
+							<svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+						</div>
+						<div class="sys-pillar-label">Bewijzen</div>
+						<p class="sys-pillar-desc">Elke detectie, interventie en vangst automatisch vastgelegd. Altijd aantoonbaar. Altijd audit-klaar.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
 <!-- MONITOREN -->
 <section id="monitoren" style="scroll-margin-top:80px;margin:0 40px 40px;">

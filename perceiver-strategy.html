@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perceiver — Strategic Market Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f0f4fa;
+      color: #1f2937;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    .page-header {
+      background: linear-gradient(135deg, #0e1e7a 0%, #142ab4 30%, #1e3ed8 60%, #1348c0 100%);
+      padding: 72px 80px 64px;
+      color: white;
+    }
+    .header-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+    }
+    .header-title {
+      font-family: 'Syne', sans-serif; font-size: 52px;
+      font-weight: 800; letter-spacing: -2px; color: white;
+      margin-bottom: 16px; line-height: 1.05;
+    }
+    .header-title span { color: #6b8fff; }
+    .header-sub { font-size: 17px; color: rgba(255,255,255,0.6); max-width: 580px; }
+    .header-meta {
+      margin-top: 40px; display: flex; gap: 32px; flex-wrap: wrap;
+    }
+    .header-meta-item {
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .header-meta-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .header-meta-value { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: white; }
+
+    /* TOC */
+    .toc {
+      background: white; border-bottom: 1px solid #e6edf6;
+      padding: 20px 80px; display: flex; gap: 6px; flex-wrap: wrap;
+      align-items: center;
+    }
+    .toc-item {
+      font-size: 12px; font-weight: 500; color: #6b7280;
+      padding: 5px 12px; border-radius: 100px;
+      border: 1px solid #e6edf6; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .toc-item:hover { background: #f0f4fa; color: #1c38cc; border-color: #c7d2fe; }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 80px; }
+
+    /* SECTION */
+    .section { padding: 72px 0 0; }
+    .section-number {
+      font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: #1c38cc; margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800;
+      letter-spacing: -1px; color: #0d1117; margin-bottom: 8px; line-height: 1.2;
+    }
+    .section-intro {
+      font-size: 16px; color: #4b5563; max-width: 680px;
+      margin-bottom: 40px; line-height: 1.75;
+    }
+
+    /* CARDS */
+    .card {
+      background: white; border-radius: 20px;
+      border: 1px solid #e6edf6; padding: 36px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-family: 'Syne', sans-serif; font-size: 18px;
+      font-weight: 700; color: #0d1117; margin-bottom: 16px;
+    }
+    .card p { font-size: 15px; color: #4b5563; line-height: 1.75; margin-bottom: 12px; }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* STAT BLOCKS */
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+    .stat-card {
+      background: white; border-radius: 20px; border: 1px solid #e6edf6;
+      padding: 32px; display: flex; flex-direction: column; gap: 8px;
+    }
+    .stat-number {
+      font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800;
+      letter-spacing: -1.5px; color: #1c38cc;
+    }
+    .stat-label { font-size: 13px; color: #6b7280; line-height: 1.6; }
+    .stat-source { font-size: 11px; color: #9ca3af; font-style: italic; margin-top: 4px; }
+
+    /* ALERT */
+    .alert {
+      background: linear-gradient(135deg, #fef2f2, #fff7f7);
+      border: 1px solid #fecaca; border-radius: 20px;
+      padding: 32px 36px; margin-bottom: 16px;
+    }
+    .alert-title {
+      font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700;
+      color: #dc2626; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .alert p { font-size: 15px; color: #7f1d1d; line-height: 1.75; margin-bottom: 8px; }
+    .alert p:last-child { margin-bottom: 0; }
+    .alert strong { color: #dc2626; }
+
+    /* SUCCESS */
+    .success {
+      background: linear-gradient(135deg, #f0fdf4, #f7fef9);
+      border: 1px solid #bbf7d0; border-radius: 20px;
+      padding: 32px 36px; margin-bottom: 16px;
+    }
+    .success-title {
+      font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700;
+      color: #16a34a; margin-bottom: 12px;
+    }
+    .success p { font-size: 15px; color: #14532d; line-height: 1.75; margin-bottom: 8px; }
+    .success p:last-child { margin-bottom: 0; }
+
+    /* HIGHLIGHT */
+    .highlight {
+      background: linear-gradient(135deg, #eff6ff, #f0f7ff);
+      border: 1px solid #bfdbfe; border-radius: 20px;
+      padding: 32px 36px; margin-bottom: 16px;
+    }
+    .highlight-title {
+      font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700;
+      color: #1d4ed8; margin-bottom: 12px;
+    }
+    .highlight p { font-size: 15px; color: #1e3a8a; line-height: 1.75; margin-bottom: 8px; }
+
+    /* COMPETITOR CARDS */
+    .comp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px; }
+    .comp-card {
+      background: white; border-radius: 20px; border: 1px solid #e6edf6; padding: 32px;
+    }
+    .comp-name {
+      font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800;
+      color: #0d1117; margin-bottom: 4px;
+    }
+    .comp-type { font-size: 12px; color: #9ca3af; margin-bottom: 20px; }
+    .comp-row { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+    .comp-row-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+      text-transform: uppercase; color: #9ca3af; min-width: 90px; margin-top: 2px;
+    }
+    .comp-row-value { font-size: 14px; color: #4b5563; line-height: 1.6; }
+    .comp-tag {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 100px; margin-right: 6px; margin-bottom: 4px;
+    }
+    .tag-green { background: #dcfce7; color: #16a34a; }
+    .tag-red   { background: #fee2e2; color: #dc2626; }
+    .tag-blue  { background: #dbeafe; color: #1d4ed8; }
+    .tag-gray  { background: #f1f5f9; color: #6b7280; }
+
+    /* TWO COLUMN */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+    /* SWOT */
+    .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .swot-card { background: white; border-radius: 20px; border: 1px solid #e6edf6; padding: 32px; }
+    .swot-title {
+      font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .swot-s .swot-title { color: #16a34a; }
+    .swot-w .swot-title { color: #dc2626; }
+    .swot-o .swot-title { color: #1d4ed8; }
+    .swot-t .swot-title { color: #d97706; }
+    .swot-item { font-size: 14px; color: #4b5563; line-height: 1.6; margin-bottom: 10px; padding-left: 16px; position: relative; }
+    .swot-item::before { content: "—"; position: absolute; left: 0; color: #9ca3af; }
+
+    /* USP CARDS */
+    .usp-list { display: flex; flex-direction: column; gap: 16px; }
+    .usp-card {
+      background: white; border-radius: 20px; border: 1px solid #e6edf6;
+      padding: 32px; display: grid; grid-template-columns: 48px 1fr; gap: 24px;
+      align-items: flex-start;
+    }
+    .usp-num {
+      font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800;
+      color: #e6edf6; letter-spacing: -1px; line-height: 1;
+    }
+    .usp-title {
+      font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700;
+      color: #0d1117; margin-bottom: 8px;
+    }
+    .usp-body { font-size: 14px; color: #4b5563; line-height: 1.75; margin-bottom: 10px; }
+    .usp-why { font-size: 13px; color: #1c38cc; font-weight: 500; }
+
+    /* MESSAGING */
+    .msg-card {
+      background: #06091a; border-radius: 20px; padding: 36px;
+      margin-bottom: 16px;
+    }
+    .msg-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px;
+    }
+    .msg-headline {
+      font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800;
+      color: white; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 16px;
+    }
+    .msg-headline em { color: #6b8fff; font-style: normal; }
+    .msg-body { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 20px; }
+    .msg-why {
+      font-size: 13px; color: rgba(255,255,255,0.4);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 16px; font-style: italic;
+    }
+
+    /* VALUE PROP CARDS */
+    .vp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .vp-card {
+      background: white; border-radius: 20px; border: 1px solid #e6edf6; padding: 28px;
+    }
+    .vp-icon { font-size: 28px; margin-bottom: 16px; }
+    .vp-title {
+      font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700;
+      color: #0d1117; margin-bottom: 10px;
+    }
+    .vp-body { font-size: 13px; color: #6b7280; line-height: 1.7; }
+
+    /* TABLE */
+    table { width: 100%; border-collapse: collapse; }
+    th { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+         color: #9ca3af; text-align: left; padding: 10px 16px; border-bottom: 2px solid #e6edf6; }
+    td { font-size: 14px; color: #4b5563; padding: 12px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .td-label { font-weight: 600; color: #1f2937; }
+
+    /* DIVIDER */
+    .divider { height: 1px; background: #e6edf6; margin: 64px 0 0; }
+
+    /* BEACHHEAD */
+    .beachhead {
+      background: linear-gradient(135deg, #0e1e7a 0%, #142ab4 30%, #1e3ed8 60%, #1348c0 100%);
+      border-radius: 24px; padding: 48px; margin-bottom: 16px; color: white;
+    }
+    .beachhead-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 16px;
+    }
+    .beachhead-title {
+      font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800;
+      letter-spacing: -0.5px; color: white; margin-bottom: 20px; line-height: 1.2;
+    }
+    .beachhead-title span { color: #6b8fff; }
+    .beachhead-body { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.75; margin-bottom: 16px; }
+    .beachhead-stats {
+      display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+    }
+    .beachhead-stat-n {
+      font-family: 'Syne', sans-serif; font-size: 28px;
+      font-weight: 800; color: white; letter-spacing: -1px;
+    }
+    .beachhead-stat-l { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+    /* FOOTER */
+    .page-footer {
+      background: #06091a; padding: 48px 80px; margin-top: 80px;
+      color: rgba(255,255,255,0.4); font-size: 13px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .page-footer strong { color: rgba(255,255,255,0.7); }
+
+    /* PATTERN TAG */
+    .pattern-list { display: flex; flex-direction: column; gap: 0; }
+    .pattern-item {
+      padding: 14px 0; border-bottom: 1px solid #f1f5f9;
+      display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: flex-start;
+    }
+    .pattern-item:last-child { border-bottom: none; }
+    .pattern-icon { color: #9ca3af; font-size: 14px; margin-top: 2px; }
+    .pattern-text { font-size: 14px; color: #4b5563; line-height: 1.6; }
+    .pattern-text strong { color: #1f2937; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="header-label">Confidential · Strategic Analysis · v1.0</div>
+  <h1 class="header-title">Perceiver<br><span>Market Strategy</span></h1>
+  <p class="header-sub">Deep competitive analysis van de Nederlandse ongediertebestrijdingsmarkt. Positionering, concurrentie, pricing, SWOT en website-messaging blueprint.</p>
+  <div class="header-meta">
+    <div class="header-meta-item">
+      <span class="header-meta-label">Markt</span>
+      <span class="header-meta-value">Nederland · B2B</span>
+    </div>
+    <div class="header-meta-item">
+      <span class="header-meta-label">Primaire sector</span>
+      <span class="header-meta-value">Horeca → Food → Retail</span>
+    </div>
+    <div class="header-meta-item">
+      <span class="header-meta-label">Datum</span>
+      <span class="header-meta-value">Maart 2026</span>
+    </div>
+    <div class="header-meta-item">
+      <span class="header-meta-label">Secties</span>
+      <span class="header-meta-value">10 strategische analyses</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <a class="toc-item" href="#s1">01 · Markt</a>
+  <a class="toc-item" href="#s2">02 · Concurrenten</a>
+  <a class="toc-item" href="#s3">03 · Patronen</a>
+  <a class="toc-item" href="#s4">04 · Pricing</a>
+  <a class="toc-item" href="#s5">05 · SWOT</a>
+  <a class="toc-item" href="#s6">06 · Positionering</a>
+  <a class="toc-item" href="#s7">07 · USP's</a>
+  <a class="toc-item" href="#s8">08 · Markt winnen</a>
+  <a class="toc-item" href="#s9">09 · Value propositions</a>
+  <a class="toc-item" href="#s10">10 · Website messaging</a>
+</div>
+
+<div class="container">
+
+<!-- ══ 01 MARKT ════════════════════════════════════════════ -->
+<div class="section" id="s1">
+  <div class="section-number">01</div>
+  <h2 class="section-title">Marktoverzicht</h2>
+  <p class="section-intro">De Nederlandse ongediertebestrijdingsmarkt is groot, groeiend en onder toenemende regulatoire druk. Dit creëert structurele vraag naar aantoonbaar effectieve, data-gedreven oplossingen.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">~€548M</div>
+      <div class="stat-label">Marktomvang Nederland (2023). Een van de vijf grootste pest control markten in Europa naast UK, Duitsland, Frankrijk en Italië.</div>
+      <div class="stat-source">Bron: Bonafide Research / Research and Markets</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">+5% p.j.</div>
+      <div class="stat-label">Verwachte jaarlijkse groei door 2029. Gedreven door verstedelijking, voedselregelgeving en toenemend bewustzijn van hygiënerisico's.</div>
+      <div class="stat-source">Bron: IMARC Group / Allied Market Research</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">€10.3B</div>
+      <div class="stat-label">Verwachte Europese marktomvang in 2033 (nu €6.6B). CAGR 5%. Smart pest monitoring groeit 3x sneller dan de traditionele markt.</div>
+      <div class="stat-source">Bron: Market Data Forecast / Credence Research</div>
+    </div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">⚠️ Kritieke marktdriver: NVWA-sluitingen bereiken recordhoogte</div>
+    <p>In de eerste <strong>7 weken van 2026</strong> sloot de NVWA <strong>22 horecazaken en winkels</strong> vanwege plaagdiereninfestaties — een verdrievoudiging ten opzichte van dezelfde periode een jaar eerder (7 sluitingen). In heel 2025 waren dat er 75, tegenover 57 in 2024.</p>
+    <p><strong>Bijna de helft van alle sluitingen in 2026 vond plaats in Amsterdam.</strong> In bijna alle gevallen ging het om muizen, in sommige gevallen om ratten. Bedrijven mogen pas heropenen nadat besmet voedsel is verwijderd, de ruimte grondig is gereinigd en aantoonbare maatregelen zijn genomen.</p>
+    <p>Dit is de krachtigste externe driver voor Perceiver's propositie. De markt ervaart een urgentiegolf die geen enkel bestaand product volledig adresseert.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Regelgeving als structurele vraagmotor</div>
+    <p>Bedrijven in de voedselketen zijn wettelijk verplicht pest control uit te voeren via een gecertificeerd IPM-bedrijf (Integrated Pest Management). Giftige lokmiddelen en lijmplaten zijn voor routinegebruik grotendeels verboden sinds 2017. De EU-doelstelling om pesticidengebruik met 50% te reduceren tegen 2030 (European Green Deal) maakt de transitie naar gifvrije methodes niet alleen wenselijk maar structureel noodzakelijk.</p>
+    <p>HACCP-wetgeving verplicht bedrijven tot het vastleggen van alle maatregelen rondom voedselveiligheid, inclusief plaagdierenbestrijding. Aantoonbaarheid en documentatie zijn geen nice-to-have — ze zijn juridisch vereist. Een bedrijf zonder aantoonbare pest control documentatie is kwetsbaar bij elke NVWA-inspectie.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Marktstructuur — wie spelen er?</div>
+      <p><strong>Grote internationale spelers:</strong> Rentokil (marktleider), Anticimex (Zweeds). Landelijk dekkend, sterk in enterprise en middensegment.</p>
+      <p><strong>Nationale ketens:</strong> EWS Group, Mortiservices en vergelijkbare middensegment spelers met een mix van diensten.</p>
+      <p><strong>Regionale specialisten:</strong> Tientallen onafhankelijke bedrijven per regio. Lokale kennisvoordeel, prijscompetitief, geen tech.</p>
+      <p><strong>Budget-aanbieders:</strong> Budget Ongediertebestrijding en vergelijkbaar. Op prijs, eenmalig, geen preventie.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Vraagdrivers — waarom groeit de markt?</div>
+      <p><strong>Verstedelijking:</strong> 75% van de EU-bevolking woont in stedelijk gebied. Dichtheid vergroot plaagdierrisico structureel.</p>
+      <p><strong>Klimaat:</strong> Warmere winters betekenen minder natuurlijke populatieregulatie. Ratten en muizenpopulaties nemen toe.</p>
+      <p><strong>Voedselregulering:</strong> NVWA-handhaving escaleert. Sectoren die altijd laks waren (kleine horeca) worden nu actief gesloten.</p>
+      <p><strong>Bewustwording:</strong> Social media en publiciteit rond NVWA-sluitingen verhogen de bereidheid tot preventieve investering.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══ 02 CONCURRENTEN ══════════════════════════════════════ -->
+<div class="section" id="s2">
+  <div class="section-number">02</div>
+  <h2 class="section-title">Concurrentenanalyse</h2>
+  <p class="section-intro">De markt kent twee relevante categorieën: gevestigde grote spelers met eigen technologie en de massa van traditionele bedrijven zonder technologie.</p>
+
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-name">Rentokil</div>
+      <div class="comp-type">Internationaal · Marktleider · Actief in NL since 1936 · 285+ medewerkers</div>
+      <div class="comp-row">
+        <span class="comp-row-label">Positionering</span>
+        <span class="comp-row-value">"#1 in plaagdierbestrijding." Expert, betrouwbaar, professioneel. Sterk op track record en schaalgrootte.</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Technologie</span>
+        <span class="comp-row-value">PestConnect — IoT met infraroodsensoren, 24/7 monitoring, cloudverbinding, realtime alerts. Geen camera's, geen beeldherkenning.</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Messaging</span>
+        <span class="comp-row-value">"Preventie + bestrijding samen." "Maatwerk per klant." Focus op expertise en vertrouwen.</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Sterktes</span>
+        <div>
+          <span class="comp-tag tag-green">Merkbekendheid</span>
+          <span class="comp-tag tag-green">Landelijke dekking</span>
+          <span class="comp-tag tag-green">IoT technologie</span>
+          <span class="comp-tag tag-green">Vertrouwen</span>
+        </div>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Zwaktes</span>
+        <div>
+          <span class="comp-tag tag-red">Geen visuele verificatie</span>
+          <span class="comp-tag tag-red">Geen AI beeldherkenning</span>
+          <span class="comp-tag tag-red">Grote organisatie, traag</span>
+          <span class="comp-tag tag-red">Generiek, niet sector-specifiek</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-name">Anticimex</div>
+      <div class="comp-type">Internationaal · Zweeds · 8 vestigingen NL · "Smart Pest Control"</div>
+      <div class="comp-row">
+        <span class="comp-row-label">Positionering</span>
+        <span class="comp-row-value">"Leading in Smart Pest Control." Van reactief naar preventief. Duurzaam, digitaal, gifvrij. Positioneert actief op technologie.</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Technologie</span>
+        <span class="comp-row-value">Anticimex SMART — sensoren + vallen, cellulaire verbinding, geen camera's. Detecteert beweging/aanwezigheid maar identificeert niet visueel wat er is.</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Messaging</span>
+        <span class="comp-row-value">"Constant monitoring. Instant reaction." "24/7 digitaal." "Preventief, niet reactief." Sterk vergelijkbaar met Perceiver's huidige richting.</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Sterktes</span>
+        <div>
+          <span class="comp-tag tag-green">Al tech-gepositioneerd</span>
+          <span class="comp-tag tag-green">Gifvrij</span>
+          <span class="comp-tag tag-green">24/7 monitoring claim</span>
+          <span class="comp-tag tag-green">IPM-certified</span>
+        </div>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Zwaktes</span>
+        <div>
+          <span class="comp-tag tag-red">Geen visuele ID (blind)</span>
+          <span class="comp-tag tag-red">Weet WANNEER, niet WAT</span>
+          <span class="comp-tag tag-red">Geen dataportaal/app niveau</span>
+          <span class="comp-tag tag-red">Geen aanbevelingsonderbouwing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-name">Regionale spelers</div>
+      <div class="comp-type">Lokaal · Klein · Prijscompetitief · Geen tech</div>
+      <div class="comp-row">
+        <span class="comp-row-label">Positionering</span>
+        <span class="comp-row-value">Snel, lokaal, persoonlijk, goedkoop. Geen differentiëring op aanpak of technologie.</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Technologie</span>
+        <span class="comp-row-value">Vrijwel geen. Handmatige inspectie, periodieke bezoeken, standaard vallen.</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Sterktes</span>
+        <div>
+          <span class="comp-tag tag-green">Prijs</span>
+          <span class="comp-tag tag-green">Flexibiliteit</span>
+          <span class="comp-tag tag-green">Lokale kennis</span>
+        </div>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Zwaktes</span>
+        <div>
+          <span class="comp-tag tag-red">Geen preventie</span>
+          <span class="comp-tag tag-red">Geen rapportage</span>
+          <span class="comp-tag tag-red">Geen data</span>
+          <span class="comp-tag tag-red">Geen aantoonbaarheid</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-name">Budget-aanbieders</div>
+      <div class="comp-type">Budget Ongediertebestrijding e.a. · Eenmalig · Consument-gericht</div>
+      <div class="comp-row">
+        <span class="comp-row-label">Positionering</span>
+        <span class="comp-row-value">Laagste prijs. Snelle eenmalige behandeling. Relevant voor consument, niet voor zakelijke horeca/food markt.</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-row-label">Relevantie voor Perceiver</span>
+        <span class="comp-row-value">Laag. Dit segment is niet de doelgroep. Maar het laat zien dat de markt breed is en de ondergrens bij €65-€80 per behandeling ligt.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <div class="highlight-title">🎯 De kritieke observatie: Anticimex is de dichtstbijzijnde concurrent — maar ze zijn blind</div>
+    <p>Anticimex SMART positioneert op vrijwel dezelfde thema's als Perceiver: 24/7, preventief, gifvrij, digitaal. Dit is het bewijs dat de markt klaar is voor deze positionering. Maar er is een fundamenteel technologisch verschil: Anticimex SMART gebruikt sensoren. Die weten dat er iets is — maar niet wat. Perceiver gebruikt AI-beeldherkenning. Perceiver ziet en identificeert.</p>
+    <p>Het verschil: Anticimex weet "er is beweging bij sensor 3." Perceiver weet "het is een muis, in de keuken, bij de koelkast, 23:47 uur, voor de vierde keer deze week." Dat is het verschil tussen aanwezigheid en zekerheid. Het is ook het verschil tussen een alarm en bewijs.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══ 03 PATRONEN ═════════════════════════════════════════ -->
+<div class="section" id="s3">
+  <div class="section-number">03</div>
+  <h2 class="section-title">Industriepatronen</h2>
+  <p class="section-intro">Wat zeggen alle concurrenten? Waar zit de open ruimte?</p>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Wat iedereen zegt</div>
+      <div class="pattern-list">
+        <div class="pattern-item"><div class="pattern-icon">—</div><div class="pattern-text"><strong>Preventie</strong> — vrijwel iedereen claimt nu preventief te werken, ook als ze dat operationeel niet waarmaken</div></div>
+        <div class="pattern-item"><div class="pattern-icon">—</div><div class="pattern-text"><strong>24/7</strong> — zowel Rentokil als Anticimex claimen 24/7 monitoring</div></div>
+        <div class="pattern-item"><div class="pattern-icon">—</div><div class="pattern-text"><strong>Gifvrij / duurzaam</strong> — steeds meer standaard messaging geworden</div></div>
+        <div class="pattern-item"><div class="pattern-icon">—</div><div class="pattern-text"><strong>IPM-gecertificeerd</strong> — dit is wettelijk vereist, geen differentiator meer</div></div>
+        <div class="pattern-item"><div class="pattern-icon">—</div><div class="pattern-text"><strong>Maatwerk</strong> — elk bedrijf belooft maatwerk, niemand legt uit wat dat concreet betekent</div></div>
+        <div class="pattern-item"><div class="pattern-icon">—</div><div class="pattern-text"><strong>Betrouwbaar / professioneel</strong> — generieke vertrouwenswoorden zonder bewijs</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Wat niemand zegt</div>
+      <div class="pattern-list">
+        <div class="pattern-item"><div class="pattern-icon">→</div><div class="pattern-text"><strong>Wat een bestrijder daadwerkelijk weet versus aanneemt</strong> — de kenniskloof wordt nooit besproken</div></div>
+        <div class="pattern-item"><div class="pattern-icon">→</div><div class="pattern-text"><strong>Onderbouwing van aanbevelingen</strong> — niemand legt uit hoe u een aanbeveling kunt verifiëren</div></div>
+        <div class="pattern-item"><div class="pattern-icon">→</div><div class="pattern-text"><strong>De kosten van onnodige maatregelen</strong> — het financiële risico van adviezen op basis van aannames</div></div>
+        <div class="pattern-item"><div class="pattern-icon">→</div><div class="pattern-text"><strong>Wat er 's nachts op uw locatie gebeurt</strong> — de onzichtbare periode wordt nooit geadresseerd</div></div>
+        <div class="pattern-item"><div class="pattern-icon">→</div><div class="pattern-text"><strong>NVWA-sluitingsrisico als concreet getal</strong> — niemand gebruikt de beschikbare data als urgency driver</div></div>
+        <div class="pattern-item"><div class="pattern-icon">→</div><div class="pattern-text"><strong>Het verschil tussen "weten" en "vermoeden"</strong> — de zekerheidskloof is onontdekt territory</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="success">
+    <div class="success-title">✓ De open ruimte: Zekerheid als eigendom</div>
+    <p>Geen enkele concurrent claimt het concept van aantoonbare, visueel bevestigde zekerheid. "24/7 monitoring" is al bezet. "Preventief" is al bezet. Maar het verschil tussen een sensor die iets detecteert en een camera die precies ziet wat, waar en wanneer — dat is onbezet terrein.</p>
+    <p>De positionering die Perceiver kan bezitten: <strong>"U weet het. Altijd. Niet omdat wij het zeggen, maar omdat de data het bewijst."</strong> Dit is een categorie die de concurrentie technologisch niet kan volgen zonder hun hele systeem te vervangen.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══ 04 PRICING ══════════════════════════════════════════ -->
+<div class="section" id="s4">
+  <div class="section-number">04</div>
+  <h2 class="section-title">Prijsstructuur</h2>
+  <p class="section-intro">De markt kent grote prijsverspreiding afhankelijk van type klant, schaal en dienstniveau. B2B contracten zijn structureel anders geprijsd dan consumentendiensten.</p>
+
+  <div class="card">
+    <div class="card-title">Hoe traditionele pest control prijst</div>
+    <table>
+      <thead><tr><th>Type dienst</th><th>Indicatief prijsniveau</th><th>Structuur</th></tr></thead>
+      <tbody>
+        <tr><td class="td-label">Eenmalige behandeling (muis/rat)</td><td>€65 – €250</td><td>Per bezoek, afhankelijk van omvang</td></tr>
+        <tr><td class="td-label">Consumentenabonnement</td><td>~€25/maand</td><td>Periodiek bezoek op afroep</td></tr>
+        <tr><td class="td-label">B2B jaarcontract horeca (klein)</td><td>€800 – €2.500/jaar</td><td>8–12 bezoeken/jaar, preventie + bestrijding</td></tr>
+        <tr><td class="td-label">B2B contract middelgroot bedrijf</td><td>€2.500 – €8.000/jaar</td><td>Meer locaties, hogere frequentie</td></tr>
+        <tr><td class="td-label">Rentokil/Anticimex SMART enterprise</td><td>Niet publiek, premium op standaard</td><td>Apparatuur + service als bundel</td></tr>
+        <tr><td class="td-label">Spoedinzet/reactieve behandeling</td><td>€150 – €500+</td><td>Eenmalig, crisis-respons</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="two-col">
+    <div class="highlight">
+      <div class="highlight-title">💡 Pricing inzicht: de traditionele markt prijst op bezoeken</div>
+      <p>Traditionele pest control factureert per bezoek of per jaar op basis van het aantal bezoeken. Dit maakt de propositie kwetsbaar: als er niets is, betaalt u alsnog voor een bezoek. Als er veel is, zijn extra bezoeken extra kosten.</p>
+      <p>Perceiver's as-a-service model is fundamenteel anders: één abonnement, continue aanwezigheid, geen extra kosten voor meer activiteit. Dit is een prijsmodel dat structurele helderheid biedt waar de markt structurele onduidelijkheid biedt.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Pricing strategie aanbeveling</div>
+      <p>Positioneer Perceiver niet als goedkoper dan de markt. Positioneer het als het elimineren van verborgen kosten: de onnodige aanpassingen op aanraden van een bestrijder, de spoedbehandeling na een NVWA-melding, de kosten van een dag sluiting.</p>
+      <p>De werkelijke total cost of ownership van traditionele pest control is hoger dan de contractprijs suggereert. Perceiver's abonnement vervangt niet alleen de service maar ook de beslissingsonzekerheid die hidden costs produceert.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">💡 Kritisch inzicht: innovatie als kostenpariteit, niet meerprijs</div>
+    <p>Perceiver heeft bewust gekozen voor een hardware-architectuur die commercieel competitief maakt op prijs: een €500 server bedient een volledige horecalocatie, PoE-camera's kosten €40 per stuk, een eigen 4G-router elimineert netwerkafhankelijkheid. De gepatenteerde vallen hebben een kostprijs van €150–€300 maar worden uitsluitend ingezet bij bewezen activiteit — waardoor die investering snel terugverdiend wordt.</p>
+    <p>Het gevolg: Perceiver kan operationeel efficiënter werken dan een traditionele bestrijder. Minder onnodige bezoeken, preciezere interventies, minder bestrijdersuren per locatie. Dat maakt het mogelijk om <strong>even duur te zijn als een reguliere bestrijder</strong> — terwijl de klant continu monitoring, AI-rapportage, een gepatenteerd bestrijdingssysteem én volledige NVWA-documentatie krijgt.</p>
+    <p>Dit is het meest krachtige tegenargument tegen de reflex "zo'n systeem is vast duur." Perceiver is niet duur. Perceiver is anders.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══ 05 SWOT ══════════════════════════════════════════════ -->
+<div class="section" id="s5">
+  <div class="section-number">05</div>
+  <h2 class="section-title">SWOT Analyse</h2>
+  <p class="section-intro">Een eerlijke en volledige analyse van Perceiver's strategische positie.</p>
+
+  <div class="swot-grid">
+    <div class="swot-card swot-s">
+      <div class="swot-title">Strengths — Sterktes</div>
+      <div class="swot-item">Gepatenteerde AI-val — ML-gedreven vangfrequentie voorkomt argwaan en maximaliseert vangst. Geen concurrent heeft dit</div>
+      <div class="swot-item">Camera-gebaseerde visuele identificatie — concurrenten gebruiken sensoren (blind). Perceiver ziet en identificeert wat er is</div>
+      <div class="swot-item">Volledig geautomatiseerd bestrijdingsproces — concurrenten brengen systemen bóvenop hun uurtje-factuurtje. Perceiver vervangt het handmatige werk</div>
+      <div class="swot-item">Full-stack dienst: hardware + software + bestrijding in één maandabonnement. Geen losse kosten, geen meervoudige contracten</div>
+      <div class="swot-item">Extreem lage installatie-drempel — €500 server, €40 PoE-camera, eigen 4G-router. Geen afhankelijkheid van klantnetwerk. Klant is binnen uren live</div>
+      <div class="swot-item">Gecertificeerd bestrijder in dienst — volledig bevoegd voor professionele bestrijding. Gifvrij = geen extra bedrijfscertificering nodig</div>
+      <div class="swot-item">Optimaal bestrijdingsplan per locatie — AI weet precies wat een bestrijder moet komen doen: welke vallen plaatsen, verwijderen, bijvullen, accu's vervangen</div>
+      <div class="swot-item">Tijdelijke camera's op risicopunten — bewijs of een aanbeveling nodig is vóór dure infrastructurele aanpassingen</div>
+      <div class="swot-item">Ketenwaarschuwing in real-time — melding naar kwaliteitsmanager bij actieve muisdetectie. Reputatieschade voorkomen vóór het op social media staat</div>
+      <div class="swot-item">Gifvrij + IPM-conform — structureel in lijn met EU-regelgeving 2030</div>
+      <div class="swot-item">Schaalbaar via ZZP-netwerk — operationele groei zonder vaste personeelskosten</div>
+      <div class="swot-item">Rapportage op alle niveaus (live, dagelijks, wekelijks, maandelijks, kwartaal) — altijd inspectie-gereed</div>
+    </div>
+    <div class="swot-card swot-w">
+      <div class="swot-title">Weaknesses — Zwaktes</div>
+      <div class="swot-item">Geen track record of klantverwijzingen — nul social proof bij launch</div>
+      <div class="swot-item">Onbekend merk in een markt gedomineerd door gevestigde namen (Rentokil, Anticimex)</div>
+      <div class="swot-item">Geen sector-specifieke content of casestudies per doelgroep (horeca, food, retail)</div>
+      <div class="swot-item">Vallen hebben kostprijs van €150–€300 — initiële kapitaalbinding bij opschaling</div>
+    </div>
+    <div class="swot-card swot-o">
+      <div class="swot-title">Opportunities — Kansen</div>
+      <div class="swot-item">NVWA-sluitingsgolf creëert acuut gevoel van urgentie bij horeca-eigenaren</div>
+      <div class="swot-item">Amsterdam als geografisch beachhead: hoogste sluitingsdensiteit, hoogste concentratie</div>
+      <div class="swot-item">EU pesticide-reductiedoelstelling 2030 maakt gifvrije aanpak noodzakelijk, niet optioneel</div>
+      <div class="swot-item">Anticimex Smart toont aan dat de markt klaar is voor tech-positionering</div>
+      <div class="swot-item">Voedselproducenten en supermarkten als grotere groeicategorie in fase 2</div>
+      <div class="swot-item">Geen concurrent bezit het "visuele zekerheid" narratief — open positioneringsruimte</div>
+      <div class="swot-item">Growing media-aandacht voor NVWA-sluitingen verhoogt marktbewustzijn gratis</div>
+    </div>
+    <div class="swot-card swot-t">
+      <div class="swot-title">Threats — Bedreigingen</div>
+      <div class="swot-item">Anticimex heeft R&D-capaciteit en kan camera-technologie toevoegen aan SMART — maar het patent op de val geeft Perceiver een structurele voorsprong die jaren kost om te omzeilen</div>
+      <div class="swot-item">Rentokil's PestConnect kan uitgebreid worden met visuele verificatie — als zij dit doen, valideert het Perceivers positie</div>
+      <div class="swot-item">Prijscompetitie van regionale spelers bij klanten die prijs boven kwaliteit stellen — beperkt risico omdat Perceiver even duur kan zijn als een reguliere bestrijder</div>
+      <div class="swot-item">Klantscepsis tegenover nieuwe technologie in een traditionele branche — vraagt om bewijs, niet om uitleg</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══ 06 POSITIONERING ════════════════════════════════════ -->
+<div class="section" id="s6">
+  <div class="section-number">06</div>
+  <h2 class="section-title">Strategische Positionering</h2>
+  <p class="section-intro">Hoe Perceiver zichzelf moet positioneren om de markt te winnen — gebaseerd op de marktanalyse, niet op intuïtie.</p>
+
+  <div class="card">
+    <div class="card-title">Positioneringsruimte: het zekerheidsmonopolie</div>
+    <p>De markt heeft twee kampen: traditionele bestrijders (weten weinig, komen periodiek) en smart-systemen (weten wanneer iets triggert, niet wat). Niemand bezit het concept van visueel bevestigde, continue, aantoonbare zekerheid. Dit is de open ruimte.</p>
+    <p>Perceiver's positionering moet niet zijn "wij zijn slimmer dan de anderen" — dat klinkt als een claim. Het moet zijn: <strong>"Wij zijn de enige partij die u kan tonen wat er daadwerkelijk op uw locatie gebeurt, op elk moment, met bewijs."</strong> Dat is een feit, geen claim. En feiten winnen in B2B.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Positionering ten opzichte van Anticimex Smart</div>
+      <p>Anticimex Smart is de meest directe concurrent en het is goed nieuws dat zij bestaan. Zij hebben de markt geconditioneerd op preventief denken en 24/7 monitoring. Perceiver hoeft die educatie niet opnieuw te doen.</p>
+      <p>Het narratief: <em>"Anticimex SMART weet dat er iets is. Perceiver weet wat het is, waar precies, hoe vaak, en of uw aanbeveling om die muur te dichten werkelijk nodig is."</em></p>
+      <p>Cruciaal verschil: Anticimex Smart is een systeem bovenop bestaande dienstverlening — de klant betaalt voor het systeem én het handmatige werk. Perceiver automatiseert het bestrijdingsproces zelf. Minder handmatige bezoeken, minder urenfacturering, precies ingrijpen waar en wanneer data het aangeeft.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Positionering ten opzichte van traditioneel</div>
+      <p>Traditionele bestrijders zijn niet de vijand — ze zijn de referentiepunten. De vergelijking moet geen aanval zijn maar een feitenconstatering: traditionele pest control is gebouwd voor een wereld zonder data. Perceiver is gebouwd voor een wereld mét data.</p>
+      <p>Het narratief: <em>"Een bestrijder ziet wat er is tijdens zijn bezoek. Perceiver ziet wat er elke nacht is."</em> Eén zin. Geen aanval. Pure vergelijking.</p>
+      <p>Traditionele spelers brengen uren in rekening voor periodieke controles, pallets verschuiven, sporen zoeken. Perceiver elimineert dit handmatige werk. De bestrijder komt alleen als de data het aangeeft, weet precies wat hij moet doen, en is weg als het klaar is.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">De automatiseringskloof — wat niemand anders kan zeggen</div>
+    <p>Rentokil en Anticimex brengen slimme systemen, maar die systemen zitten <em>bovenop</em> hun uurtje-factuurtje. De klant betaalt dus dubbel: voor de technologie én voor het handmatige werk dat de technologie eigenlijk overbodig zou moeten maken. Perceiver doet iets fundamenteel anders: het automatiseert het hele bestrijdingsproces.</p>
+    <p>Perceiver's AI weet precies welke vallen moeten worden bijgevuld, verplaatst, verwijderd of toegevoegd — per locatie, per dag. Een bestrijder hoeft geen pallets te verschuiven op zoek naar keutels. Hij arriveert met een takenlijst gegenereerd door de data, werkt die af, en vertrekt. Dat is niet efficiënter werken. Dat is een fundamenteel ander model.</p>
+    <p><strong>De uitkomst voor de klant:</strong> Perceiver kan dezelfde prijs vragen als een traditionele bestrijder nu kost — terwijl de klant veel meer zekerheid, vastlegging én een gepatenteerd bestrijdingssysteem krijgt. De innovatie levert kostenpariteit op, geen meerprijs.</p>
+  </div>
+
+  <div class="highlight">
+    <div class="highlight-title">De positioneringszin</div>
+    <p><strong>"Perceiver is de enige pest control dienst die u geen contract verkoopt, maar zekerheid levert — aantoonbaar, continu, en gebaseerd op wat uw locatie werkelijk laat zien."</strong></p>
+    <p>Dit combineert drie elementen: het patent (enige), de outcome (zekerheid, niet service), en de differentiator (aantoonbaar en visueel). Het is geen feature-claim. Het is een resultaatbelofte.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══ 07 USP's ════════════════════════════════════════════ -->
+<div class="section" id="s7">
+  <div class="section-number">07</div>
+  <h2 class="section-title">Echte USP's</h2>
+  <p class="section-intro">Niet oppervlakkige featureverkoop. De werkelijke strategische voordelen die concurrenten niet hebben en niet snel kunnen kopiëren.</p>
+
+  <div class="usp-list">
+    <div class="usp-card">
+      <div class="usp-num">01</div>
+      <div>
+        <div class="usp-title">Visuele identificatie — u weet wat er is, niet alleen dat er iets is</div>
+        <div class="usp-body">Elke concurrent die "monitoring" claimt, werkt met infrarood- of bewegingssensoren. Die weten dat er beweging was. Perceiver's AI-camera identificeert soort (rat vs muis), locatie, tijdstip en frequentie. Dit is het verschil tussen een alarm en een bewijs. Klanten kunnen elke detectie verificeren. Bestrijders kunnen elke aanbeveling onderbouwen met beeldbewijs.</div>
+        <div class="usp-why">→ Waarom het telt: Bestrijdersaanbevelingen zijn onverifieerbaar. Perceiver maakt ze verificeerbaar. Dat elimineert het grootste vertrouwensprobleem in de branche.</div>
+      </div>
+    </div>
+
+    <div class="usp-card">
+      <div class="usp-num">02</div>
+      <div>
+        <div class="usp-title">Gepatenteerde AI-val — de enige val die soms vangt en soms niet</div>
+        <div class="usp-body">Traditionele vallen vangen de eerste knaagdieren, maar de rest past zich aan zodra gedragssignalen (geur, afwezigheid van groepsgenoten) gevaar aangeven. Ze mijden de val. De gepatenteerde Perceiver-val lost dit op met machine learning: de val "weet" wanneer andere muizen of ratten meekijken en slaat dat moment over. Hij vangt alleen wanneer het veilig is vanuit het perspectief van de populatie — waardoor argwaan nooit optreedt. Daarnaast houdt de ML-logica optimale vangfrequentie bij: niet te vaak, niet te weinig, altijd maximaal effectief. De val maakt onderdeel uit van het detectiesysteem — alle vangst- en bewegingsdata komt samen in het dashboard.</div>
+        <div class="usp-why">→ Waarom het telt: Onvolledige bestrijding is de grootste frustratie. Klanten betalen jarenlang voor contracten terwijl de populatie terugkeert. Perceiver lost dit structureel op. Concurrenten kunnen deze val niet bouwen — het patent blokkeert dat.</div>
+      </div>
+    </div>
+
+    <div class="usp-card">
+      <div class="usp-num">03</div>
+      <div>
+        <div class="usp-title">Tijdelijke camera's op risicopunten — aanbevelingen bewijzen vóór uitvoering</div>
+        <div class="usp-body">Een bestrijder adviseert: "Dit gat in de muur moet dicht." Kostprijs: €200–€800. Maar is het nodig? Traditioneel is er geen manier om dat te verifiëren — de klant betaalt op vertrouwen. Perceiver plaatst tijdelijk een camera op het bewuste gat en documenteert of er daadwerkelijk knaagdieren doorheen komen. Als het zo is: directe onderbouwing voor de maatregel. Als het niet zo is: bewijs richting de NVWA dat het gat geen prioriteit heeft. Elke aanbeveling wordt gefalsifieerbaar — en daarmee geloofwaardig.</div>
+        <div class="usp-why">→ Waarom het telt: Horeca-eigenaren hebben al onnodige aanbevelingen betaald. "Wij bewijzen het eerst" is een uniek vertrouwensargument dat geen andere bestrijder kan maken.</div>
+      </div>
+    </div>
+
+    <div class="usp-card">
+      <div class="usp-num">04</div>
+      <div>
+        <div class="usp-title">Reputatiebescherming voor ketens — melding naar kwaliteitsmanager vóór social media</div>
+        <div class="usp-body">Voor horecaketens (McDonald's, KFC, hotelketens, restaurantformules) biedt Perceiver een directe koppeling naar kwaliteitsmanagement: bij actieve muisdetectie op de vloer van een vestiging gaat er onmiddellijk een melding naar de kwaliteitsmanager van de holding. De vestiging kan tijdelijk gesloten worden vóór een gast een video maakt. Een social media-incident met muizen in een bekende formule kost tienduizenden aan reputatieschade. Perceiver voorkomt dat scenario — elke nacht.</div>
+        <div class="usp-why">→ Waarom het telt: Voor ketens is reputatierisico groter dan compliancerisico. Eén viral video vernietigt meer dan een NVWA-sluiting. Dit argument opent de deur bij kwaliteits- en riskmanagers.</div>
+      </div>
+    </div>
+
+    <div class="usp-card">
+      <div class="usp-num">05</div>
+      <div>
+        <div class="usp-title">Geoptimaliseerd bestrijdingsplan per bezoek — bestrijder arriveert met een takenlijst</div>
+        <div class="usp-body">Traditionele bestrijders besteden een groot deel van hun bezoektijd aan oriëntatie: pallets verschuiven, sporen zoeken, inschatten waar activiteit is geweest. Perceiver elimineert dit. Het systeem weet welke vallen bijgevuld, verplaatst of verwijderd moeten worden, welke locaties geen activiteit vertonen (vallen weghalen), en welke accu's vervangen moeten worden. De bestrijder arriveert met een exacte takenlijst, werkt af, vertrekt. Geen onnodige uren. Geen aannames. Alleen doen wat de data aangeeft.</div>
+        <div class="usp-why">→ Waarom het telt: Minder bestrijdersuren = lagere operationele kosten voor Perceiver. Daardoor kan Perceiver concurreren op prijs met traditionele aanbieders, terwijl de klant veel meer krijgt.</div>
+      </div>
+    </div>
+
+    <div class="usp-card">
+      <div class="usp-num">06</div>
+      <div>
+        <div class="usp-title">Complete as-a-service — één abonnement, nul beheerlast</div>
+        <div class="usp-body">Rentokil en Anticimex leveren hardware als product of als onderdeel van een complex contract. Perceiver huurt het volledige systeem: camera's, server, AI-software, portaal, app én de bestrijdingsservice — alles in één maandabonnement. Klanten beheren niets. Perceiver installeert (€500 server, €40 PoE-camera's, eigen 4G-router), monitort, onderhoudt en bestrijdt. De installatie is bewust eenvoudig gehouden: geen afhankelijkheid van het klantnetwerk, geen IT-afdeling nodig. Een locatie kan binnen uren live zijn.</div>
+        <div class="usp-why">→ Waarom het telt: Horeca-eigenaren willen geen technologie beheren. Ze willen een resultaat. De lage installatiedrempel elimineert bezwaren die bij complexe systemen standaard optreden.</div>
+      </div>
+    </div>
+
+    <div class="usp-card">
+      <div class="usp-num">07</div>
+      <div>
+        <div class="usp-title">Altijd inspectie-gereed — zonder voorbereiding</div>
+        <div class="usp-body">Traditionele pest control documentatie wordt handmatig bijgehouden en is nooit volledig actueel op het moment van een NVWA-bezoek. Perceiver registreert automatisch elke detectie, vangst en maatregel. De data is altijd compleet, altijd exporteerbaar, altijd actueel. Een NVWA-inspecteur die vraagt om documentatie krijgt een volledig, tijdgestempeld, visueel gedocumenteerd overzicht — zonder voorbereiding, zonder stress.</div>
+        <div class="usp-why">→ Waarom het telt: De NVWA-sluitingsgolf maakt dit het meest urgente argument. 22 sluitingen in 7 weken. Elke horeca-eigenaar die dit leest, wil dit morgen hebben.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══ 08 HOE WINNEN ═══════════════════════════════════════ -->
+<div class="section" id="s8">
+  <div class="section-number">08</div>
+  <h2 class="section-title">Hoe We de Markt Winnen</h2>
+  <p class="section-intro">Wie adopteert het eerst, waarom switchen klanten, en hoe bouw je een moat.</p>
+
+  <div class="beachhead">
+    <div class="beachhead-label">Beachhead Market — Eerste Frontlinie</div>
+    <div class="beachhead-title">Amsterdam Horeca.<br><span>De markt die het meest brandt.</span></div>
+    <div class="beachhead-body">Amsterdam heeft de hoogste concentratie NVWA-sluitingen van heel Nederland — bijna de helft van alle 2026-sluitingen in de eerste 7 weken. Horeca-eigenaren in Amsterdam lezen de nieuwsberichten, kennen collega's die gesloten werden, en zijn acuut bewust van het risico. De angst is al aanwezig. Perceiver hoeft niet te overtuigen — alleen te tonen dat het kan.</div>
+    <div class="beachhead-body">Daarnaast is Amsterdam de meest technologie-adoptiegerichte horecamarkt van Nederland. Eigenaren en managers van Amsterdamse restaurants zijn gewend aan tech-producten en digital-first diensten.</div>
+    <div class="beachhead-stats">
+      <div>
+        <div class="beachhead-stat-n">~halverwege</div>
+        <div class="beachhead-stat-l">Alle NL-sluitingen 2026 in Amsterdam</div>
+      </div>
+      <div>
+        <div class="beachhead-stat-n">3×</div>
+        <div class="beachhead-stat-l">Meer sluitingen vroeg 2026 vs vroeg 2025</div>
+      </div>
+      <div>
+        <div class="beachhead-stat-n">22</div>
+        <div class="beachhead-stat-l">Sluitingen in slechts 7 weken</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Waarom klanten switchen</div>
+      <p><strong>Van angst naar zekerheid.</strong> Na een NVWA-bezoek of melding van een medewerker is de psychologische bereidheid om te switchen maximaal. Dit zijn de beste conversiemomenten.</p>
+      <p><strong>Van cost-center naar risk-management.</strong> Als pest control geen kostenpost is maar een verzekeringsproduct, verandert de koopbeslissing. "Wat kost het als ik gesloten word?" is een krachtiger vraag dan "wat kost het abonnement?"</p>
+      <p><strong>Data als intern bewijs.</strong> Kwaliteitsmanagers en facility managers willen intern kunnen aantonen dat ze het probleem serieus nemen. Perceiver's rapportages zijn dat bewijs.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Waarom concurrenten dit niet makkelijk kopiëren</div>
+      <p><strong>Het patent.</strong> De AI-val is gepatenteerd. Grote spelers zouden dit product moeten opkopen of zelf moeten ontwikkelen — dat duurt jaren en kost miljoenen.</p>
+      <p><strong>Beeldherkenning model.</strong> Een AI-model dat specifiek getraind is op knaagdierherkenning in hospitality-omgevingen is niet in een kwartaal gebouwd. Rentokil en Anticimex werken met sensorplatforms; het vervangen van dat platform is een investeringscyclus van meerdere jaren.</p>
+      <p><strong>Full-stack model.</strong> Perceivers concurrenten leveren óf technologie óf bestrijding. Beide combineren in één as-a-service product vereist een totaal andere operationele structuur.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Adoptiecurve — wie koopt wanneer</div>
+    <table>
+      <thead><tr><th>Fase</th><th>Segment</th><th>Adoptiereden</th><th>Timing</th></tr></thead>
+      <tbody>
+        <tr><td class="td-label">Fase 1</td><td>Amsterdam horeca (restaurants, cafés)</td><td>NVWA-angst, reputatierisico, snelle beslissing</td><td>Nu</td></tr>
+        <tr><td class="td-label">Fase 2</td><td>Horeca ketens (meerdere locaties)</td><td>Schaalvoordeel, centraal rapportageoverzicht, compliance uniform</td><td>6–18 maanden</td></tr>
+        <tr><td class="td-label">Fase 3</td><td>Voedselproducenten (HACCP-intensief)</td><td>Auditdruk, leveranciersvereisten, ISO-documentatie</td><td>12–24 maanden</td></tr>
+        <tr><td class="td-label">Fase 4</td><td>Supermarkten en retail food</td><td>Hoge footfall, reputatiegevoelig, nationale contracten</td><td>18–36 maanden</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══ 09 VALUE PROPOSITIONS ═══════════════════════════════ -->
+<div class="section" id="s9">
+  <div class="section-number">09</div>
+  <h2 class="section-title">De Echte Value Propositions</h2>
+  <p class="section-intro">Niet features. Uitkomsten. Wat de klant daadwerkelijk koopt als hij kiest voor Perceiver.</p>
+
+  <div class="vp-grid">
+    <div class="vp-card">
+      <div class="vp-icon">🛡️</div>
+      <div class="vp-title">Risicoreductie</div>
+      <div class="vp-body">Perceiver elimineert het risico van een NVWA-sluiting door continue monitoring en aantoonbare documentatie. Klanten kopen geen service — ze kopen de afwezigheid van een catastrofe.</div>
+    </div>
+    <div class="vp-card">
+      <div class="vp-icon">✅</div>
+      <div class="vp-title">Aantoonbare zekerheid</div>
+      <div class="vp-body">De klant weet altijd de actuele status van zijn locatie. Niet op basis van een bezoekrapport dat weken oud is. Op basis van beelden van gisteravond. Zekerheid is eigendom, geen belofte.</div>
+    </div>
+    <div class="vp-card">
+      <div class="vp-icon">📋</div>
+      <div class="vp-title">Inspectie-gereedheid</div>
+      <div class="vp-body">Elke inspectie is altijd gedekt. Alle data is altijd compleet. Geen stress bij een onaangekondigd NVWA-bezoek. De documentatie is er — volledig, tijdgestempeld, exporteerbaar.</div>
+    </div>
+    <div class="vp-card">
+      <div class="vp-icon">💸</div>
+      <div class="vp-title">Kostenzekerheid</div>
+      <div class="vp-body">Eén vast maandelijks abonnement. Geen onnodige aanbevelingen die dure infrastructurele aanpassingen veroorzaken. Elke maatregel is data-gedreven en daarmee verdedigbaar — ook intern bij een directie of eigenaar.</div>
+    </div>
+    <div class="vp-card">
+      <div class="vp-icon">🤝</div>
+      <div class="vp-title">Operationele ontzorging</div>
+      <div class="vp-body">De klant hoeft niets te beheren. Perceiver installeert, monitort, onderhoudt en bestrijdt. De klant focust op zijn kernactiviteit — koken, serveren, produceren. Pest control wordt onzichtbaar.</div>
+    </div>
+    <div class="vp-card">
+      <div class="vp-icon">🔬</div>
+      <div class="vp-title">Technologische voorsprong</div>
+      <div class="vp-body">De klant werkt met het meest geavanceerde pest control systeem dat beschikbaar is. Voor kwaliteitsmanagers en facility managers die intern moeten kunnen aantonen dat ze de best mogelijke maatregelen nemen.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══ 10 WEBSITE MESSAGING BLUEPRINT ════════════════════════ -->
+<div class="section" id="s10">
+  <div class="section-number">10</div>
+  <h2 class="section-title">Website Messaging Blueprint</h2>
+  <p class="section-intro">De exacte communicatiethema's en tekstrichtingen die de website moet uitdragen. Geen definitieve copy — richting, toon en inhoud per sectie.</p>
+
+  <div class="msg-card">
+    <div class="msg-label">Hero — eerste indruk · maximale urgentie</div>
+    <div class="msg-headline">In de eerste 7 weken van 2026<br>sloot de NVWA <em>22 horecazaken.</em><br>Bijna allemaal muizen.</div>
+    <div class="msg-body">Alternatief zonder NVWA-data: "Van giswerk naar zekerheid over ratten en muizen." Het NVWA-getal is optioneel maar extreem krachtig. Geeft direct context waarom dit urgent is. Bezoeker herkent onmiddellijk het risico.</div>
+    <div class="msg-why">Strategie: Open met de gevolgen van het probleem, niet met het product. De bezoeker moet direct voelen dat dit over hem gaat.</div>
+  </div>
+
+  <div class="msg-card">
+    <div class="msg-label">Probleem-sectie — valideer de pijn</div>
+    <div class="msg-headline">"Een bestrijder ziet wat er tijdens zijn bezoek is.<br><em>Perceiver ziet wat er elke nacht is."</em></div>
+    <div class="msg-body">Dit is de centrale vergelijkingszin. Eén zin die het fundamentele verschil verklaart zonder aanvallend te zijn. Gevolgd door de drie pijnpunten: periodieke bezoeken, onverifieerbare adviezen, nooit echt zeker.</div>
+    <div class="msg-why">Strategie: Geen aanval op concurrenten. Feitenconstatering over de structurele beperking van de traditionele aanpak.</div>
+  </div>
+
+  <div class="msg-card">
+    <div class="msg-label">Onderscheidend argument — de zekerheidskloof</div>
+    <div class="msg-headline">Anticimex weet <em>dat</em> er iets is.<br>Perceiver weet <em>wat</em> het is.</div>
+    <div class="msg-body">Dit is het scherpste concurrerende onderscheid. Kan impliciet blijven op de website (zonder namen) maar de logica moet door de hele site werken: sensors detecteren aanwezigheid, AI-camera's identificeren werkelijkheid.</div>
+    <div class="msg-why">Strategie: Positioneer op een technologische superioriteitsclaim die feitelijk correct is en niet aanvechtbaar.</div>
+  </div>
+
+  <div class="msg-card">
+    <div class="msg-label">Patent — unieke claim</div>
+    <div class="msg-headline">De enige val die weet wanneer hij wél<br>en wanneer hij <em>niet</em> moet vangen.</div>
+    <div class="msg-body">Het patent is een grote geloofwaardigheidsboost. Gepatenteerde technologie impliceert dat Perceiver iets heeft ontwikkeld dat een patentbureau als uniek heeft erkend. Dit verhoogt de perceptie van innovatie en ernst enorm.</div>
+    <div class="msg-why">Strategie: Een patent is een externe validatie. Het zegt: we zijn serieus genoeg om te patenteren en uniek genoeg om het te verdienen.</div>
+  </div>
+
+  <div class="msg-card">
+    <div class="msg-label">Inspectie-gereedheid — conversie-argument</div>
+    <div class="msg-headline">Als de NVWA belt, hoeft u<br>niets voor te bereiden.<br><em>De data is er al.</em></div>
+    <div class="msg-body">Dit is het meest directe argument voor de horeca doelgroep. De NVWA-closing angst is de sterkste emotionele driver. "Altijd klaar voor inspectie" moet concreet gemaakt worden: tijdgestempeld, exporteerbaar, volledig gedocumenteerd.</div>
+    <div class="msg-why">Strategie: Maak de NVWA-dreiging reëel met data, maak Perceiver de oplossing die de angst wegneemt.</div>
+  </div>
+
+  <div class="msg-card">
+    <div class="msg-label">Kostenpariteit — het verrassingsargument</div>
+    <div class="msg-headline">Wat dacht u dat dit<br>zou kosten?<br><em>U zit er waarschijnlijk naast.</em></div>
+    <div class="msg-body">De meest krachtige conversietrigger voor bezoekers die inschatten dat een geavanceerd systeem duur moet zijn. Perceiver's hardware-architectuur (€500 server, €40 PoE-camera's, eigen 4G) maakt het mogelijk om te concurreren op prijs met traditionele bestrijders — terwijl de klant continu monitoring, AI-rapportage en een gepatenteerd systeem krijgt. Dit argument moet actief gecommuniceerd worden, niet weggelaten uit angst voor prijsdiscussies.</div>
+    <div class="msg-why">Strategie: Ontkracht de prijsweerstand vóórdat die uitgesproken wordt. "Zo'n systeem is vast duur" is de meest voorspelbare bezwaar. Maak het onterecht — proactief.</div>
+  </div>
+
+  <div class="msg-card">
+    <div class="msg-label">Partnership-toon — contact &amp; CTA</div>
+    <div class="msg-headline">Wij staan naast u.<br>Niet naast een schema.</div>
+    <div class="msg-body">De toon van de CTA-sectie moet partnership zijn, niet sales. "Wij doen dit samen" — Perceiver is niet een leverancier maar een partner die meedenkt. Dit differentieert van de grote spelers die op schaal opereren en geen persoonlijk contact bieden.</div>
+    <div class="msg-why">Strategie: Voor een jong bedrijf is nabijheid en persoonlijk contact een troef. Gebruik het. Grote spelers kunnen dit niet bieden zonder te liegen.</div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title">Messaging principes — wat altijd moet gelden</div>
+    <table>
+      <thead><tr><th>Principe</th><th>Wat het betekent</th><th>Wat het voorkomt</th></tr></thead>
+      <tbody>
+        <tr><td class="td-label">Uitkomsten, geen features</td><td>"Altijd inspectie-gereed" niet "automatische rapportage"</td><td>Feature-fetishisme dat tech-bedrijven treft</td></tr>
+        <tr><td class="td-label">Feiten, geen claims</td><td>NVWA-getallen, patent-referentie, specifieke tijdstippen</td><td>Vage superlatieven die geen geloofwaardigheid opbouwen</td></tr>
+        <tr><td class="td-label">Zekerheid als belofte</td><td>Elk argument eindigt bij zekerheid als eindstaat</td><td>Versnipperde messaging zonder centrale anker</td></tr>
+        <tr><td class="td-label">Prijs proactief adresseren</td><td>"Even duur als uw huidige bestrijder" moet vroeg gezegd worden</td><td>Prijsweerstand die bezoekers weghoudt zonder dat ze vragen</td></tr>
+        <tr><td class="td-label">Horeca-taal</td><td>Keuken, opslag, entree — niet "facility" of "locatie-object"</td><td>Generieke B2B-taal die horeca-eigenaren niet herkennen</td></tr>
+        <tr><td class="td-label">Samen, niet voor</td><td>Partnership-framing in alle communicatie</td><td>Top-down leverancier-toon die afstand creëert</td></tr>
+        <tr><td class="td-label">Patent als feit, niet als claim</td><td>"Gepatenteerde val" — niet "revolutionair systeem"</td><td>Marketingbuzz die geloofwaardigheid ondermijnt</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div style="height:80px;"></div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <div><strong>perceiver.</strong> — Strategisch marktonderzoek</div>
+  <div>Op basis van NVWA-data, Bonafide Research, IMARC Group, Allied Market Research en directe concurrentenanalyse · Maart 2026</div>
+</div>
+
+</body>
+</html>
