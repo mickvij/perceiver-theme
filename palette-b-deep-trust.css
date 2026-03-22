@@ -1,0 +1,240 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PALET B: DEEP TRUST
+   Navy + Teal + Emerald
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Primary: Deep Navy ── */
+  --navy-deep:    #0F1D4A;
+  --navy-mid:     #152248;
+  --navy-light:   #1B3058;
+  --navy-surface: #1C3555;
+  --navy-fade:    #1A3050;
+
+  /* ── Secondary: Steel Teal ── */
+  --teal:         #0D9488;
+  --teal-light:   #14B8A6;
+  --teal-muted:   #0F766E;
+  --teal-glow:    rgba(13, 148, 136, 0.35);
+
+  /* ── Accent: Emerald (safety-toon) ── */
+  --emerald:      #10B981;
+  --emerald-deep: #059669;
+  --emerald-glow: rgba(16, 185, 129, 0.2);
+
+  /* ── Neutrals ── */
+  --bg-body:      #F8FAFC;
+  --bg-section:   #F1F5F9;
+  --bg-card:      #FFFFFF;
+  --text-dark:    #0F172A;
+  --text-body:    #334155;
+  --text-muted:   #64748B;
+  --text-subtle:  #94A3B8;
+  --border:       #E2E8F0;
+  --border-light: #F1F5F9;
+
+  /* ── Functional ── */
+  --success:      #15803D;
+  --success-light:#22C55E;
+  --warning:      #B45309;
+  --warning-light:#F59E0B;
+  --danger:       #DC2626;
+  --danger-light: #EF4444;
+  --info:         #1D4ED8;
+
+  /* ── Text on Dark ── */
+  --text-on-dark:       rgba(255, 255, 255, 0.85);
+  --text-on-dark-body:  rgba(255, 255, 255, 0.60);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.40);
+
+  /* ── Glassmorphism on Dark ── */
+  --glass-bg:     rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover:  rgba(255, 255, 255, 0.09);
+  --glass-blur:   blur(10px);
+
+  /* ── Shadows ── */
+  --shadow-xs:  0 1px 4px rgba(0, 0, 0, 0.05);
+  --shadow-sm:  0 4px 16px rgba(0, 0, 0, 0.07);
+  --shadow-md:  0 8px 32px rgba(0, 0, 0, 0.10);
+  --shadow-lg:  0 20px 60px rgba(0, 0, 0, 0.15);
+  --shadow-cta: 0 6px 24px var(--teal-glow);
+
+  /* ── Radius ── */
+  --radius-xl:   32px;
+  --radius-lg:   24px;
+  --radius-md:   16px;
+  --radius-sm:   12px;
+  --radius-pill: 100px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   GRADIENTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Hero — strakker, minder kleurvariatie dan Palet A */
+.gradient-hero {
+  background: linear-gradient(170deg,
+    #0F1D4A 0%,
+    #152248 50%,
+    #1B3058 100%
+  );
+}
+
+/* System section — gelijkmatig navy-spectrum */
+.gradient-system {
+  background: linear-gradient(170deg,
+    #0C1940 0%,
+    #152248 40%,
+    #1B3058 70%,
+    #1A3050 100%
+  );
+}
+
+/* Navigatie */
+.gradient-nav {
+  background: rgba(15, 29, 74, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Footer */
+.gradient-footer {
+  background: linear-gradient(180deg,
+    #0F1D4A 0%,
+    #091230 100%
+  );
+}
+
+/* Lichte sectie */
+.gradient-light-section {
+  background: linear-gradient(180deg,
+    #FFFFFF 0%,
+    #F8FAFC 50%,
+    #F1F5F9 100%
+  );
+}
+
+/* Emerald subtiele glow — voor success-momenten */
+.gradient-emerald-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(16, 185, 129, 0.06) 0%,
+    transparent 70%
+  );
+}
+
+/* Teal accent glow */
+.gradient-teal-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(13, 148, 136, 0.10) 0%,
+    transparent 70%
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   COMPONENT PATTERNS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Nav */
+nav {
+  background: rgba(15, 29, 74, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* CTA Button */
+.btn-cta {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 12px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-cta:hover {
+  background: var(--teal-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-cta);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-pill);
+  padding: 12px 28px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Glass Card (dark sections) */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 40px 32px 36px;
+  transition: all 0.3s ease;
+}
+.glass-card:hover {
+  background: var(--glass-hover);
+  transform: translateY(-4px);
+}
+
+/* Light Card */
+.light-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+.light-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Diagnose kaarten — functionele border */
+.diagnose-card--monitor    { border-left: 6px solid var(--danger); }
+.diagnose-card--bestrijden { border-left: 6px solid var(--warning); }
+.diagnose-card--rapportage { border-left: 6px solid var(--text-body); }
+
+/* Section label */
+.section-label {
+  display: inline-block;
+  color: var(--text-on-dark-body);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-pill);
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Emerald safety highlight — voor trust-/safety-elementen */
+.safety-highlight {
+  border-left: 3px solid var(--emerald);
+  padding-left: 16px;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.04), transparent 60%);
+}
+
+/* Icon kleuren */
+.icon-teal    { color: var(--teal); }
+.icon-emerald { color: var(--emerald); }

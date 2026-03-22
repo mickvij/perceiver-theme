@@ -1,0 +1,253 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PALET C: PRECISION SLATE
+   Antraciet + Teal Spark + Warm White
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Primary: Dark Slate ── */
+  --slate-deep:    #1E293B;
+  --slate-mid:     #263347;
+  --slate-light:   #334155;
+  --slate-surface: #2D3A4E;
+  --slate-fade:    #3B4A5E;
+
+  /* ── Secondary: Teal Spark (enige kleuraccent) ── */
+  --teal:          #0D9488;
+  --teal-light:    #14B8A6;
+  --teal-muted:    #0F766E;
+  --teal-glow:     rgba(13, 148, 136, 0.30);
+
+  /* ── Neutrals — warmer dan Palet A/B ── */
+  --bg-body:       #FAF9F7;
+  --bg-section:    #F5F3EF;
+  --bg-card:       #FFFFFF;
+  --text-dark:     #1E293B;
+  --text-body:     #475569;
+  --text-muted:    #64748B;
+  --text-subtle:   #94A3B8;
+  --border:        #E2E0DC;
+  --border-light:  #F0EDE8;
+
+  /* ── Steel tones (monochromatisch accent) ── */
+  --steel:         #94A3B8;
+  --steel-dark:    #64748B;
+  --steel-light:   #CBD5E1;
+
+  /* ── Functional ── */
+  --success:       #15803D;
+  --success-light: #22C55E;
+  --warning:       #B45309;
+  --warning-light: #F59E0B;
+  --danger:        #DC2626;
+  --danger-light:  #EF4444;
+  --info:          #1D4ED8;
+
+  /* ── Text on Dark ── */
+  --text-on-dark:       rgba(255, 255, 255, 0.88);
+  --text-on-dark-body:  rgba(255, 255, 255, 0.60);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.35);
+
+  /* ── Glassmorphism on Dark — subtieler, minder blur ── */
+  --glass-bg:     rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-hover:  rgba(255, 255, 255, 0.08);
+  --glass-blur:   blur(8px);
+
+  /* ── Shadows ── */
+  --shadow-xs:  0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-sm:  0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md:  0 8px 28px rgba(0, 0, 0, 0.08);
+  --shadow-lg:  0 20px 50px rgba(0, 0, 0, 0.12);
+  --shadow-cta: 0 6px 20px var(--teal-glow);
+
+  /* ── Radius ── */
+  --radius-xl:   32px;
+  --radius-lg:   24px;
+  --radius-md:   16px;
+  --radius-sm:   12px;
+  --radius-pill: 100px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   GRADIENTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Hero — antraciet-spectrum, warm undertone */
+.gradient-hero {
+  background: linear-gradient(175deg,
+    #1E293B 0%,
+    #263347 50%,
+    #2D3A4E 100%
+  );
+}
+
+/* System section — iets dieper, meer contrast */
+.gradient-system {
+  background: linear-gradient(175deg,
+    #1A2332 0%,
+    #263347 40%,
+    #2D3A4E 70%,
+    #334155 100%
+  );
+}
+
+/* Navigatie — dichter, meer solid */
+.gradient-nav {
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Footer */
+.gradient-footer {
+  background: linear-gradient(180deg,
+    #1E293B 0%,
+    #151D2B 100%
+  );
+}
+
+/* Lichte sectie — warm wit spectrum */
+.gradient-light-section {
+  background: linear-gradient(180deg,
+    #FFFFFF 0%,
+    #FAF9F7 50%,
+    #F5F3EF 100%
+  );
+}
+
+/* Teal spark glow — ingetogen, één punt van licht */
+.gradient-teal-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(13, 148, 136, 0.08) 0%,
+    transparent 60%
+  );
+}
+
+/* Subtle top-line accent op cards */
+.gradient-card-accent {
+  background: linear-gradient(90deg,
+    rgba(13, 148, 136, 0.3) 0%,
+    rgba(13, 148, 136, 0.05) 50%,
+    transparent 100%
+  );
+  height: 2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   COMPONENT PATTERNS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Nav */
+nav {
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* CTA Button */
+.btn-cta {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 12px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-cta:hover {
+  background: var(--teal-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-cta);
+}
+
+/* Ghost Button — iets minder contrast dan navy-paletten */
+.btn-ghost {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: var(--radius-pill);
+  padding: 12px 28px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Glass Card (dark sections) — minimaler dan Palet A */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 40px 32px 36px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+/* Teal top-accent op glass cards */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(13, 148, 136, 0.4) 0%,
+    rgba(13, 148, 136, 0.05) 60%,
+    transparent 100%
+  );
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+.glass-card:hover {
+  background: var(--glass-hover);
+  transform: translateY(-4px);
+}
+
+/* Light Card */
+.light-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+.light-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Diagnose kaarten */
+.diagnose-card--monitor    { border-left: 6px solid var(--danger); }
+.diagnose-card--bestrijden { border-left: 6px solid var(--warning); }
+.diagnose-card--rapportage { border-left: 6px solid var(--text-body); }
+
+/* Section label */
+.section-label {
+  display: inline-block;
+  color: var(--text-on-dark-body);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pill);
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Teal precision highlight */
+.precision-highlight {
+  border-left: 2px solid var(--teal);
+  padding-left: 16px;
+}
+
+/* Icon kleuren — alleen teal in dit palet */
+.icon-teal { color: var(--teal); }
