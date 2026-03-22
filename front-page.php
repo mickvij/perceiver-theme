@@ -11,7 +11,7 @@
 		<a href="#rapportage">Rapportage</a>
 		<a href="#werkwijze">Werkwijze</a>
 	</div>
-	<a href="#contact" class="nav-cta">Praat met expert</a>
+	<a href="#contact" class="nav-cta" style="background:#0D9488;">Praat met expert</a>
 </nav>
 
 <!-- HERO -->
@@ -37,7 +37,7 @@
 
 		<div class="hero-visual">
 			<div class="float-badge badge-1">
-				<div class="badge-icon" style="background:#dcfce7">🎯</div>
+				<div class="badge-icon" style="background:rgba(13,148,136,0.12)">🎯</div>
 				<div>
 					<div style="font-size:11px;color:#6b7280;">Nieuw vangst</div>
 					<div style="font-size:13px;">Locatie B · Zone 3</div>
@@ -99,7 +99,7 @@
 			</div>
 
 			<div class="float-badge badge-2">
-				<div class="badge-icon" style="background:#dbeafe">📍</div>
+				<div class="badge-icon" style="background:rgba(15,29,74,0.1)">📍</div>
 				<div>
 					<div style="font-size:11px;color:#6b7280;">Heatmap update</div>
 					<div style="font-size:13px;">3 nieuwe hotspots</div>
@@ -128,33 +128,37 @@
 	<div class="frustration-inner">
 		<div class="frustration-text reveal">
 			<h2 class="section-h2">U draagt de verantwoordelijkheid.<br><span class="frustration-accent">Grip ontbreekt.</span></h2>
-			<!-- Introductietekst: wordt later toegevoegd -->
+			<p class="frustration-body">De meeste bedrijven in de voedselketen lopen tegen dezelfde drie knelpunten aan. Herkenbaar?</p>
 		</div>
-		<div class="frustration-cards reveal reveal-delay-2">
-			<div class="frust-card">
-				<div class="frust-card-accent frust-card-accent--red"></div>
-				<div class="frust-card-content">
-					<div class="frust-card-label">Monitoren</div>
-					<h3 class="frust-card-title">Tussen controles bent u blind</h3>
-					<p class="frust-card-desc">Uw bestrijder komt eens per vier tot zes weken. Daartussen weet u niet wat er loopt, waar, hoeveel of wanneer. En ook tijdens een controle ziet u slechts een momentopname — niet het patroon. Het werkelijke beeld kent u niet.</p>
+		<div class="frustration-blocks">
+
+			<div class="frust-block frust-block--red reveal reveal-delay-1">
+				<div class="frust-block-num">01</div>
+				<div class="frust-block-body">
+					<div class="frust-block-label">Monitoren</div>
+					<h3 class="frust-block-title">Tussen controles bent u blind</h3>
+					<p class="frust-block-desc">Uw bestrijder komt eens per vier tot zes weken. Daartussen weet u niet wat er loopt, waar, hoeveel of wanneer. En ook tijdens een controle ziet u slechts een momentopname — niet het patroon. Het werkelijke beeld kent u niet.</p>
 				</div>
 			</div>
-			<div class="frust-card">
-				<div class="frust-card-accent frust-card-accent--amber"></div>
-				<div class="frust-card-content">
-					<div class="frust-card-label">Bestrijden</div>
-					<h3 class="frust-card-title">De huidige bestrijding loopt vast</h3>
-					<p class="frust-card-desc">Vallen verliezen snel hun effectiviteit, omdat knaagdieren ze leren omzeilen. Dan blijft gif over. Waar voedsel in de buurt is, wilt u dat niet en kunt u het vaak ook niet gebruiken. Zo loopt bestrijding vast.</p>
+
+			<div class="frust-block frust-block--amber reveal reveal-delay-2">
+				<div class="frust-block-num">02</div>
+				<div class="frust-block-body">
+					<div class="frust-block-label">Bestrijden</div>
+					<h3 class="frust-block-title">De huidige bestrijding loopt vast</h3>
+					<p class="frust-block-desc">Vallen verliezen snel hun effectiviteit, omdat knaagdieren ze leren omzeilen. Dan blijft gif over. Waar voedsel in de buurt is, wilt u dat niet en kunt u het vaak ook niet gebruiken. Zo loopt bestrijding vast.</p>
 				</div>
 			</div>
-			<div class="frust-card">
-				<div class="frust-card-accent frust-card-accent--slate"></div>
-				<div class="frust-card-content">
-					<div class="frust-card-label">Rapporteren</div>
-					<h3 class="frust-card-title">U kunt het niet aantonen</h3>
-					<p class="frust-card-desc">Uw rapport laat zien dat er gecontroleerd is. Niet dat het probleem onder controle is. Er zijn geen beelden, geen activiteitsdata en geen bewijs dat uw aanpak werkt. Bij een audit of incident staat u nog steeds met te weinig in handen.</p>
+
+			<div class="frust-block frust-block--slate reveal reveal-delay-3">
+				<div class="frust-block-num">03</div>
+				<div class="frust-block-body">
+					<div class="frust-block-label">Rapporteren</div>
+					<h3 class="frust-block-title">U kunt het niet aantonen</h3>
+					<p class="frust-block-desc">Uw rapport laat zien dat er gecontroleerd is. Niet dat het probleem onder controle is. Er zijn geen beelden, geen activiteitsdata en geen bewijs dat uw aanpak werkt. Bij een audit of incident staat u nog steeds met te weinig in handen.</p>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </section>
@@ -163,6 +167,12 @@
 <!-- HET SYSTEEM: Perceiver als geïntegreerd geheel     -->
 <!-- ═══════════════════════════════════════════════════ -->
 <section id="systeem" class="system-section" style="scroll-margin-top:80px;">
+	<!-- Curved top edge (reversed hero curve) -->
+	<div class="system-curve-top">
+		<svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M0 0v60c240 40 480 60 720 60s480-20 720-60V0H0z" fill="#f8fafc"/>
+		</svg>
+	</div>
 	<div class="system-inner" style="max-width:1200px;margin:0 auto;padding:0 40px;">
 
 		<!-- Intro -->
@@ -175,7 +185,7 @@
 		<!-- Drie stappen als kaarten -->
 		<div class="sys-cards">
 			<div class="sys-card reveal reveal-delay-1">
-				<div class="sys-card-icon" style="background:linear-gradient(135deg,#0891b2,#06b6d4);">
+				<div class="sys-card-icon" style="background:linear-gradient(135deg,#0D9488,#14B8A6);">
 					<svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
 				</div>
 				<div class="sys-card-num">01</div>
@@ -183,7 +193,7 @@
 				<p class="sys-card-desc">Camera's met AI-beeldherkenning maken zichtbaar wat er loopt, waar activiteit is en hoe die zich ontwikkelt.</p>
 			</div>
 			<div class="sys-card reveal reveal-delay-2">
-				<div class="sys-card-icon" style="background:linear-gradient(135deg,#6366f1,#818cf8);">
+				<div class="sys-card-icon" style="background:linear-gradient(135deg,#0F1D4A,#1A2A6C);">
 					<svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
 				</div>
 				<div class="sys-card-num">02</div>
@@ -191,7 +201,7 @@
 				<p class="sys-card-desc">Die informatie stuurt waar bestrijding wordt ingezet en wanneer wordt bijgestuurd. Zo sluit de inzet aan op wat er daadwerkelijk gebeurt.</p>
 			</div>
 			<div class="sys-card reveal reveal-delay-3">
-				<div class="sys-card-icon" style="background:linear-gradient(135deg,#10b981,#34d399);">
+				<div class="sys-card-icon" style="background:linear-gradient(135deg,#C9A84C,#D4B968);">
 					<svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
 				</div>
 				<div class="sys-card-num">03</div>
@@ -212,14 +222,14 @@
 		</div>
 		<div class="persona-grid">
 			<div class="persona-card reveal reveal-delay-1">
-				<div class="persona-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">
+				<div class="persona-avatar" style="background:linear-gradient(135deg,#C9A84C,#A8893F);">
 					<svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.15c0 .415.336.75.75.75z"/></svg>
 				</div>
 				<div class="persona-role">De horecaondernemer</div>
 				<p class="persona-text">U wilt weten of uw zaak schoon is — zonder elke nacht wakker te liggen. Met Perceiver ziet u direct of er activiteit is. Geen verrassing bij een NVWA-controle. Geen onverwachte sluiting. Gewoon grip op wat er in uw pand gebeurt, ook als u er niet bent.</p>
 			</div>
 			<div class="persona-card reveal reveal-delay-2">
-				<div class="persona-avatar" style="background:linear-gradient(135deg,#0891b2,#06b6d4);">
+				<div class="persona-avatar" style="background:linear-gradient(135deg,#0D9488,#14B8A6);">
 					<svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"/></svg>
 				</div>
 				<div class="persona-role">De kwaliteitsmanager</div>
