@@ -9,3 +9,7 @@ build/
 
 # Logs
 *.log
+
+# Deploy
+.deploy-config
+.last-deploy
