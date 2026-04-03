@@ -23,11 +23,10 @@
 	<div class="hero-content">
 		<div class="hero-text">
 			<h1><em>Aannames</em><br>horen niet thuis in<br>voedselveiligheid.</h1>
-			<p class="hero-sub">Ziet wat er loopt. Stuurt de bestrijding aan. Legt resultaat vast.</p>
-			<div class="hero-actions">
-				<a href="#contact" class="btn-primary">Plan een gratis demo</a>
-				<a href="#systeem" class="btn-ghost">Bekijk hoe het werkt →</a>
-			</div>
+		</div>
+		<div class="hero-actions">
+			<a href="#contact" class="btn-primary">Plan een gratis demo</a>
+			<a href="#systeem" class="btn-ghost">Bekijk hoe het werkt →</a>
 		</div>
 
 		<div class="hero-visual">

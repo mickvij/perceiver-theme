@@ -2270,8 +2270,20 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
   .hero .hero-text h1 .nowrap-phrase { white-space: normal; }
   .nowrap-phrase { white-space: normal !important; }
   .section-h2 { font-size: clamp(26px, 6.5vw, 32px) !important; hyphens: none; }
-  .hero-visual { display: none; }
-  .hero-actions { flex-direction: column; gap: 12px; }
+
+  /* ── Hero mobile layout: h1 → slider → knoppen ── */
+  .hero-content { display: flex; flex-direction: column; gap: 20px; }
+  .hero-text { order: 1; }
+  .hero-visual {
+    order: 2;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .hero-visual .float-badge { display: none; }
+  .hero-actions { order: 3; flex-direction: column; gap: 12px; }
   .btn-primary, .btn-ghost { width: 100%; text-align: center; justify-content: center; }
   .hero-proof { flex-wrap: wrap; gap: 12px; }
 
