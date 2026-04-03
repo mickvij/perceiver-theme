@@ -2261,15 +2261,13 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
   /* ── Hero ── */
   .hero { padding: 72px 20px 110px; min-height: auto; overflow-x: hidden; }
   .hero h1 {
-    font-size: clamp(28px, 7.2vw, 34px);
+    font-size: clamp(24px, 6.2vw, 28px);
     overflow-wrap: break-word;
     word-break: normal;
     hyphens: none;
-    letter-spacing: -0.8px;
-    line-height: 1.1;
+    letter-spacing: -0.5px;
+    line-height: 1.12;
   }
-  .hero-text h1 em { display: block; }
-  .hero-text h1 br { display: none; }
   .hero .hero-text h1 .nowrap-phrase { white-space: normal; }
   .nowrap-phrase { white-space: normal !important; }
   .section-h2 { font-size: clamp(26px, 6.5vw, 32px) !important; hyphens: none; }
