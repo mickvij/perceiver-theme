@@ -2269,6 +2269,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
     line-height: 1.1;
   }
   .hero-text h1 em { display: block; }
+  .hero-text h1 br { display: none; }
   .hero .hero-text h1 .nowrap-phrase { white-space: normal; }
   .nowrap-phrase { white-space: normal !important; }
   .section-h2 { font-size: clamp(26px, 6.5vw, 32px) !important; hyphens: none; }
