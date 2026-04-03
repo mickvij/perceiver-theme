@@ -2255,18 +2255,20 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
     text-align: center;
   }
   .nav-actions { gap: 8px; }
+  .nav-btn { display: none; }
   .nav-btn-login { display: none; }
 
   /* ── Hero ── */
-  .hero { padding: 72px 24px 48px; min-height: auto; }
+  .hero { padding: 72px 20px 48px; min-height: auto; overflow: hidden; }
   .hero h1 {
-    font-size: clamp(28px, 7.5vw, 38px);
+    font-size: clamp(26px, 6.5vw, 34px);
     overflow-wrap: break-word;
-    word-break: normal;
-    hyphens: manual;
+    word-break: break-word;
+    hyphens: auto;
     letter-spacing: -0.5px;
   }
   .hero .hero-text h1 .nowrap-phrase { white-space: normal; }
+  .nowrap-phrase { white-space: normal !important; }
   .hero-visual { display: none; }
   .hero-actions { flex-direction: column; gap: 12px; }
   .btn-primary, .btn-ghost { width: 100%; text-align: center; justify-content: center; }
