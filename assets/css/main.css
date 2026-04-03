@@ -494,7 +494,7 @@ nav.scrolled { padding: 12px 60px; }
 .frustration-section {
   position: relative;
   max-width: 1280px;
-  margin: 0 auto;
+  margin: -2px auto 0;
   padding: 20px 40px 80px;
 }
 .frustration-section::before {
@@ -2233,7 +2233,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
   /* ── Navbar ── */
   nav { padding: 14px 20px; }
   nav.scrolled { padding: 12px 20px; }
-  .nav-hamburger { display: flex; }
+  .nav-hamburger { display: flex !important; }
   .nav-links {
     display: none;
     position: fixed;

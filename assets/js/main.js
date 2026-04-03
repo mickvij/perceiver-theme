@@ -18,6 +18,22 @@
     });
   }
 
+  // Hamburger menu
+  const hamburger = document.getElementById('navHamburger');
+  if (hamburger && navbar) {
+    hamburger.addEventListener('click', () => {
+      const open = navbar.classList.toggle('nav-open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    // Sluit menu bij klikken op een link
+    navbar.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        navbar.classList.remove('nav-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
   // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -134,6 +150,7 @@
     const ctx = canvas.getContext('2d');
     let w, h;
     let t = Math.random() * 10000; // offset so hero & system don't sync
+    let lastTs = 0;
 
     const blobs = blobConfig;
     const GRID_COLS = 28;
@@ -160,8 +177,10 @@
       return { dx, dy };
     }
 
-    function draw() {
-      t += 6;
+    function draw(ts) {
+      const delta = lastTs ? Math.min(ts - lastTs, 50) : 16.67;
+      lastTs = ts;
+      t += delta * 0.36;
       ctx.clearRect(0, 0, w, h);
 
       // 1. Glowing orbs
@@ -239,7 +258,7 @@
     }
 
     resize();
-    draw();
+    requestAnimationFrame(draw);
     window.addEventListener('resize', resize);
   }
 
