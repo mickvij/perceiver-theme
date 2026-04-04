@@ -221,20 +221,26 @@
 			<h2 class="section-h2">Wat betekent dit voor u?</h2>
 		</div>
 		<div class="persona-grid">
-			<div class="persona-card reveal reveal-delay-1">
-				<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-horeca.png" alt="De horecaondernemer" />
+			<div class="persona-card persona-1 reveal reveal-delay-1">
+				<div class="persona-avatar-circle">
+					<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-horeca.png" alt="De horecaondernemer" />
+				</div>
 				<div class="persona-role">De horecaondernemer</div>
 				<p class="persona-text">&ldquo;Eindelijk weet ik wat er in mijn zaak gebeurt, wordt er gericht ingegrepen en kan ik me richten op mijn gasten.&rdquo;</p>
 			</div>
 
-			<div class="persona-card reveal reveal-delay-2">
-				<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-kwaliteit.png" alt="De kwaliteitsmanager" />
+			<div class="persona-card persona-2 reveal reveal-delay-2">
+				<div class="persona-avatar-circle">
+					<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-kwaliteit.png" alt="De kwaliteitsmanager" />
+				</div>
 				<div class="persona-role">De kwaliteitsmanager</div>
 				<p class="persona-text">&ldquo;Met Perceiver ga ik van aannames naar zekerheid: ik weet wat er gebeurt, houd grip op de situatie en bescherm kwaliteit en merknaam beter tegen risico&rsquo;s.&rdquo;</p>
 			</div>
 
-			<div class="persona-card reveal reveal-delay-3">
-				<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-productie.png" alt="De productiemanager" />
+			<div class="persona-card persona-3 reveal reveal-delay-3">
+				<div class="persona-avatar-circle">
+					<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-productie.png" alt="De productiemanager" />
+				</div>
 				<div class="persona-role">De productiemanager</div>
 				<p class="persona-text">&ldquo;De eerste activiteit is direct zichtbaar, blijft de productieomgeving beter beschermd en worden processen zo min mogelijk verstoord.&rdquo;</p>
 			</div>
