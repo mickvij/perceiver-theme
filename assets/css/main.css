@@ -841,10 +841,11 @@ nav.scrolled { padding: 12px 60px; }
 }
 .persona-avatar-img {
   width: 100%;
-  height: 100%;
+  height: 110%;
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center 15%;
   display: block;
+  margin-top: -10%;
 }
 /* Per-persona cirkelkleuren */
 .persona-1 .persona-avatar-circle {
