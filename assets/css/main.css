@@ -142,6 +142,7 @@ nav.scrolled { padding: 12px 60px; }
   min-height: 100vh;
   padding: 100px 40px 160px;
   position: relative;
+  overflow-x: hidden;
 }
 .hero::before {
   content: ''; position: absolute; inset: 0; z-index: 1;
@@ -2219,7 +2220,6 @@ footer {
 }
 /* ── Hamburger button (altijd aanwezig, alleen zichtbaar op mobiel) ── */
 .nav-hamburger {
-  display: none;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -2230,6 +2230,10 @@ footer {
   cursor: pointer;
   padding: 4px;
   z-index: 200;
+  /* Verborgen op desktop via visibility, niet display:none — werkt beter cross-browser */
+  display: flex;
+  visibility: hidden;
+  pointer-events: none;
 }
 .nav-hamburger span {
   display: block;
@@ -2250,7 +2254,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
   /* ── Navbar ── */
   nav { padding: 14px 20px; }
   nav.scrolled { padding: 12px 20px; }
-  .nav-hamburger { display: flex !important; }
+  .nav-hamburger { visibility: visible !important; pointer-events: auto !important; }
   .nav-links {
     display: none;
     position: fixed;
@@ -2277,6 +2281,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
 
   /* ── Hero ── */
   .hero { padding: 72px 20px 110px; min-height: auto; overflow-x: hidden; }
+  .hero-streak { display: none; } /* Voorkom overflow op mobile */
   .hero h1 {
     font-size: clamp(24px, 6.2vw, 28px);
     overflow-wrap: break-word;
