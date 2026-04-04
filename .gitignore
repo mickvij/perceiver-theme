@@ -12,4 +12,11 @@ build/
 
 # Deploy
 .deploy-config
+.deploy-config.staging
 .last-deploy
+.last-deploy-staging
+
+# Test output
+tests/node_modules/
+tests/report/
+tests/test-results/

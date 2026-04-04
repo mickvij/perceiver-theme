@@ -1,0 +1,7 @@
+# Staging SFTP credentials — kopieer naar .deploy-config.staging en vul in
+# Dit bestand NOOIT committen (staat in .gitignore)
+SFTP_HOST="523528101.ssh.w1.strato.hosting"
+SFTP_USER="stu333767243"
+SFTP_PASS="WACHTWOORD_HIER"
+# Staging WordPress pad (pas aan als je een tweede WP-installatie hebt)
+# REMOTE_BASE="/STRATO-apps/wordpress_02/app/wp-content/themes/perceiver-theme"
