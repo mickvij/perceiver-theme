@@ -9,6 +9,8 @@
 		<a href="#systeem">Onze oplossing</a>
 		<a href="#voor-wie">Voor wie</a>
 		<a href="#faq">FAQ</a>
+		<a href="#contact" class="nav-mobile-cta nav-mobile-only">Praat met expert</a>
+		<a href="/login" class="nav-mobile-login nav-mobile-only">Login</a>
 	</div>
 	<div class="nav-actions">
 		<a href="#contact" class="nav-btn">Praat met expert</a>

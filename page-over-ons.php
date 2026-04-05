@@ -18,6 +18,8 @@ get_header(); ?>
 		<a href="<?php echo esc_url(home_url('/')); ?>#voor-wie">Voor wie</a>
 		<a href="<?php echo esc_url(home_url('/')); ?>#faq">FAQ</a>
 		<a href="<?php echo esc_url(home_url('/over-ons')); ?>" class="nav-active">Over ons</a>
+		<a href="<?php echo esc_url(home_url('/')); ?>#contact" class="nav-mobile-cta nav-mobile-only">Praat met expert</a>
+		<a href="/login" class="nav-mobile-login nav-mobile-only">Login</a>
 	</div>
 	<div class="nav-actions">
 		<a href="<?php echo esc_url(home_url('/')); ?>#contact" class="nav-btn">Praat met expert</a>
