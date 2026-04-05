@@ -2328,7 +2328,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
 
   /* ── Hero mobile layout ── */
   .hero-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .hero-text { text-align: center; }
   .hero-visual { display: none; }
