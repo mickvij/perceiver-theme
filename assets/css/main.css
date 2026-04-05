@@ -497,6 +497,7 @@ nav.scrolled { padding: 12px 60px; }
   max-width: 1280px;
   margin: -2px auto 0;
   padding: 20px 40px 80px;
+  overflow: hidden;
 }
 .frustration-section::before {
   content: '';
@@ -2248,8 +2249,9 @@ nav.nav-open .nav-hamburger span:nth-child(2) { opacity: 0; }
 nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 @media (max-width: 768px) {
-  /* ── Scroll ── */
+  /* ── Scroll & overflow ── */
   html { scroll-behavior: auto; }
+  html, body { overflow-x: clip; }
 
   /* ── Navbar ── */
   nav { padding: 14px 20px; }

@@ -23,6 +23,11 @@ get_header(); ?>
 		<a href="<?php echo esc_url(home_url('/')); ?>#contact" class="nav-btn">Praat met expert</a>
 		<a href="/login" class="nav-btn-login">Login</a>
 	</div>
+	<button class="nav-hamburger" id="navHamburger" aria-label="Menu openen" aria-expanded="false">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
 </nav>
 
 <!-- ── HERO: Founding insight ── -->
