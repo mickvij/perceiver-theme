@@ -48,8 +48,8 @@ jobs:
   deploy-production:
     name: Deploy naar Productie
     runs-on: ubuntu-latest
-    needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && always()
+    needs: test  # Pas deployen ALS tests geslaagd zijn
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     steps:
       - name: Checkout code
