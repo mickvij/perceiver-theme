@@ -2224,8 +2224,8 @@ footer {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   background: none;
   border: none;
   cursor: pointer;
@@ -2347,6 +2347,34 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
   footer { padding: 36px 20px; }
   .cta-modal-box { padding: 36px 24px 32px; }
   .cta-form-row { grid-template-columns: 1fr; }
+
+  /* ── Touch targets ── */
+  .cta-modal-close { width: 44px; height: 44px; }
+
+  /* ── iOS auto-zoom prevention ── */
+  .cta-form-group input,
+  .cta-form-group textarea,
+  .cta-form-group select { font-size: 16px; }
+
+  /* ── Float badges hidden on mobile ── */
+  .float-badge { display: none; }
+
+  /* ── Inline style overrides for mobile padding ── */
+  .system-inner { padding-left: 20px !important; padding-right: 20px !important; }
+  .personas-section > div { padding-left: 20px !important; padding-right: 20px !important; }
+}
+
+/* ── Safe area support (iPhone notch / Dynamic Island) ── */
+@supports (padding: max(0px)) {
+  @media (max-width: 768px) {
+    nav {
+      padding-left: max(20px, env(safe-area-inset-left));
+      padding-right: max(20px, env(safe-area-inset-right));
+    }
+    footer {
+      padding-bottom: max(36px, env(safe-area-inset-bottom));
+    }
+  }
 }
 
 /* ══════════════════════════════════════════════════════ */
