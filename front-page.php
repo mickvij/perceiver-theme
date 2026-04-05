@@ -30,6 +30,7 @@
 	<div class="hero-content">
 		<div class="hero-text">
 			<h1><em>Aannames</em><br>horen niet thuis in<br>voedselveiligheid.</h1>
+			<p class="hero-sub">Continu zicht op plaagdieractiviteit met AI-detectie, directe meldingen en meetbaar resultaat.</p>
 			<div class="hero-actions">
 				<a href="#contact" class="btn-primary">Praat met een expert</a>
 				<a href="#systeem" class="btn-ghost">Bekijk hoe het werkt →</a>
