@@ -2309,7 +2309,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
     font-size: clamp(28px, 7.5vw, 36px);
     overflow-wrap: break-word;
     word-break: normal;
-    hyphens: auto;
+    hyphens: none;
     letter-spacing: -0.7px;
     line-height: 1.18;
     margin-bottom: 16px;
