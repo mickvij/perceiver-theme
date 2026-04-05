@@ -31,7 +31,7 @@
 		<div class="hero-text">
 			<h1><em>Aannames</em><br>horen niet thuis in<br>voedselveiligheid.</h1>
 			<div class="hero-actions">
-				<a href="#contact" class="btn-primary">Plan een gratis demo</a>
+				<a href="#contact" class="btn-primary">Praat met een expert</a>
 				<a href="#systeem" class="btn-ghost">Bekijk hoe het werkt →</a>
 			</div>
 		</div>
