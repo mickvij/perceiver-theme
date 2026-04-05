@@ -3,12 +3,14 @@
 <!-- NAV -->
 <nav id="navbar">
 	<a href="<?php echo esc_url(home_url('/')); ?>" class="nav-logo" aria-label="Perceiver home">
-		<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="Perceiver logo">
+		<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="Perceiver logo" width="1833" height="311">
 	</a>
 	<div class="nav-links">
 		<a href="#systeem">Onze oplossing</a>
 		<a href="#voor-wie">Voor wie</a>
 		<a href="#faq">FAQ</a>
+		<a href="#contact" class="nav-mobile-cta nav-mobile-only">Praat met expert</a>
+		<a href="/login" class="nav-mobile-login nav-mobile-only">Login</a>
 	</div>
 	<div class="nav-actions">
 		<a href="#contact" class="nav-btn">Praat met expert</a>
@@ -46,7 +48,7 @@
 			<div class="hero-slideshow" id="heroSlideshow">
 				<!-- SLIDE 1: AI Detection -->
 				<div class="hero-slide active" data-slide="0">
-					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-detection.png" alt="AI beeldherkenning detecteert muis met 99% zekerheid">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-detection.png" alt="AI beeldherkenning detecteert muis met 99% zekerheid" loading="lazy" width="1536" height="1024">
 					<div class="slide-caption">
 						<div class="slide-caption-dot"></div>
 						<div class="slide-caption-text">AI Beeldherkenning</div>
@@ -56,7 +58,7 @@
 
 				<!-- SLIDE 2: Phone Alert -->
 				<div class="hero-slide" data-slide="1">
-					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-alert.png" alt="Directe melding op telefoon bij detectie">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-alert.png" alt="Directe melding op telefoon bij detectie" loading="lazy" width="1536" height="1024">
 					<div class="slide-caption">
 						<div class="slide-caption-dot"></div>
 						<div class="slide-caption-text">Direct Alert</div>
@@ -66,7 +68,7 @@
 
 				<!-- SLIDE 3: Service Van -->
 				<div class="hero-slide" data-slide="2">
-					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-service.png" alt="Perceiver bestrijder komt aan bij locatie">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slider-service.png" alt="Perceiver bestrijder komt aan bij locatie" loading="lazy" width="1536" height="1024">
 					<div class="slide-caption">
 						<div class="slide-caption-dot"></div>
 						<div class="slide-caption-text">Snelle Respons</div>
@@ -76,7 +78,7 @@
 
 				<!-- SLIDE 4: Dashboard -->
 				<div class="hero-slide" data-slide="3">
-					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slide-dashboard.png" alt="Volledig data dashboard met realtime inzichten">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/slide-dashboard.png" alt="Volledig data dashboard met realtime inzichten" loading="lazy" width="1536" height="1024">
 					<div class="slide-caption">
 						<div class="slide-caption-dot"></div>
 						<div class="slide-caption-text">Data Dashboard</div>
@@ -228,7 +230,7 @@
 		<div class="persona-grid">
 			<div class="persona-card persona-1 reveal reveal-delay-1">
 				<div class="persona-avatar-circle">
-					<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-horeca.png" alt="De horecaondernemer" />
+					<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-horeca.png" alt="De horecaondernemer" loading="lazy" width="1024" height="1024" />
 				</div>
 				<div class="persona-role">De horecaondernemer</div>
 				<p class="persona-text">&ldquo;Eindelijk weet ik wat er in mijn zaak gebeurt, wordt er gericht ingegrepen en kan ik me richten op mijn gasten.&rdquo;</p>
@@ -236,7 +238,7 @@
 
 			<div class="persona-card persona-2 reveal reveal-delay-2">
 				<div class="persona-avatar-circle">
-					<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-kwaliteit.png" alt="De kwaliteitsmanager" />
+					<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-kwaliteit.png" alt="De kwaliteitsmanager" loading="lazy" width="1024" height="1024" />
 				</div>
 				<div class="persona-role">De kwaliteitsmanager</div>
 				<p class="persona-text">&ldquo;Met Perceiver ga ik van aannames naar zekerheid: ik weet wat er gebeurt, houd grip op de situatie en bescherm kwaliteit en merknaam beter tegen risico&rsquo;s.&rdquo;</p>
@@ -244,7 +246,7 @@
 
 			<div class="persona-card persona-3 reveal reveal-delay-3">
 				<div class="persona-avatar-circle">
-					<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-productie.png" alt="De productiemanager" />
+					<img class="persona-avatar-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/persona-productie.png" alt="De productiemanager" loading="lazy" width="1024" height="1024" />
 				</div>
 				<div class="persona-role">De productiemanager</div>
 				<p class="persona-text">&ldquo;De eerste activiteit is direct zichtbaar, blijft de productieomgeving beter beschermd en worden processen zo min mogelijk verstoord.&rdquo;</p>

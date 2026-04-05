@@ -262,6 +262,12 @@
     window.addEventListener('resize', resize);
   }
 
+  // Skip heavy canvas animations on mobile (saves battery & prevents jank)
+  // Also respect prefers-reduced-motion
+  var skipMesh = window.matchMedia('(max-width: 768px)').matches ||
+                 window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!skipMesh) {
   // Hero mesh — blobs shifted for hero layout (teal top-right, gold bottom-left)
   initMesh('heroMesh', [
     { x: 0.65, y: 0.25, r: 0.40, speed: 0.0004, phase: 0.5,  color: [13, 148, 136], alpha: 0.30 },
@@ -304,6 +310,7 @@
     { x: 0.85, y: 0.20, r: 0.35, speed: 0.00028,phase: 3.8,  color: [13, 148, 136], alpha: 0.12 },
     { x: 0.15, y: 0.80, r: 0.30, speed: 0.00032,phase: 0.4,  color: [201, 168, 76], alpha: 0.08 },
   ]);
+  } // end if (!skipMesh)
 
   function handleFormSubmit(e, targetId) {
     e.preventDefault();

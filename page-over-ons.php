@@ -11,13 +11,15 @@ get_header(); ?>
 <!-- NAV -->
 <nav id="navbar">
 	<a href="<?php echo esc_url(home_url('/')); ?>" class="nav-logo" aria-label="Perceiver home">
-		<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="Perceiver logo">
+		<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="Perceiver logo" width="1833" height="311">
 	</a>
 	<div class="nav-links">
 		<a href="<?php echo esc_url(home_url('/')); ?>#systeem">Onze oplossing</a>
 		<a href="<?php echo esc_url(home_url('/')); ?>#voor-wie">Voor wie</a>
 		<a href="<?php echo esc_url(home_url('/')); ?>#faq">FAQ</a>
 		<a href="<?php echo esc_url(home_url('/over-ons')); ?>" class="nav-active">Over ons</a>
+		<a href="<?php echo esc_url(home_url('/')); ?>#contact" class="nav-mobile-cta nav-mobile-only">Praat met expert</a>
+		<a href="/login" class="nav-mobile-login nav-mobile-only">Login</a>
 	</div>
 	<div class="nav-actions">
 		<a href="<?php echo esc_url(home_url('/')); ?>#contact" class="nav-btn">Praat met expert</a>
