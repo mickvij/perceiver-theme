@@ -2299,7 +2299,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
 
   /* ── Hero ── */
   .hero {
-    padding: 60px 24px 60px;
+    padding: 76px 24px 24px;
     min-height: 100vh;
     min-height: 100svh;
     overflow-x: hidden;
@@ -2314,6 +2314,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
     line-height: 1.18;
     margin-bottom: 16px;
   }
+  .hero h1 br { display: none; }
   .hero-sub {
     font-size: 15px;
     line-height: 1.6;
